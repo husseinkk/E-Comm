@@ -1,11 +1,12 @@
 package DataAccess;
 
+import java.sql.SQLException;
+
 import Controller.User;
-import DataAccess.UserDBAccess;
 
-public class hi {
+public class mean {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
 		User user = new User() ;
 		user.username= "1";

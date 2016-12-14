@@ -2,6 +2,7 @@ package DataAccess;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import Controller.Course;
 import Controller.Teacher;
@@ -12,13 +13,17 @@ import Controller.User;
  */
 public class UserDBAccess {
 
-	static Connection currentCon = null;
+	static ConnectionManager Con = null;
 	static ResultSet rs = null;
+	static java.sql.Connection currentCon;
 
 	/**
 	 * Default constructor
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public UserDBAccess() {
+	public UserDBAccess() throws ClassNotFoundException, SQLException {
+		Con = new ConnectionManager();
 	}
 
 	/**
@@ -28,14 +33,16 @@ public class UserDBAccess {
 	/**
 	 * @param user
 	 * @return
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
-	public User signIn(User user) {
+	public User signIn(User user) throws ClassNotFoundException, SQLException {
 		Statement stmt = null;
 		String Query = "select * from Users join UsersTypes where Username=" + user.username + " and Password = "
 				+ user.password;
-
 		try {
-			currentCon = ConnectionManager.getConnection();
+			
+			currentCon = Con.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 
@@ -139,10 +146,10 @@ public class UserDBAccess {
 	 * @param type
 	 * @return
 	 */
-	public User[] selectUser(Course course, UserType type) {
+/*	public User[] selectUser(Course course, UserType type) {
 		// TODO implement here
 		return null;
-	}
+	}*/
 
 	/**
 	 * @param user
@@ -152,9 +159,8 @@ public class UserDBAccess {
 		Statement stmt = null;
 		String Query = "select * from Users join UsersTypes where Username=" + user.username + " and Password = "
 				+ user.password;
-
 		try {
-			currentCon = ConnectionManager.getConnection();
+			currentCon = Con.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			boolean more = rs.next();
