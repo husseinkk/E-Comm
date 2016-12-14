@@ -3,8 +3,9 @@ package Controller;
 /**
  * 
  */
-public abstract class User {
-
+public class User {
+	
+	public User() {};
     /**
      * 
      */

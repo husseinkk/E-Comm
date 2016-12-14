@@ -16,7 +16,7 @@ public class ConnectionManager {
 	 * Default constructor
 	 */
 	public ConnectionManager() {
-		serverPath = "jdbc:mysql://RANA/E-Comm";
+		serverPath = "jdbc:sqlserver://[RANA[\\E-Com]";
 	}
 
 	/**
@@ -25,9 +25,10 @@ public class ConnectionManager {
 	public static Connection getConnection() {
 		try {
 			
-			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
 			try {
+				serverPath = "jdbc:sqlserver://RANA;databaseName=E-Comm;user=RANA\\HP";
 				con = DriverManager.getConnection(serverPath);
 			}
 

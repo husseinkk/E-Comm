@@ -32,24 +32,17 @@ public class UserDBAccess {
 	 */
 	public User signIn(User user) {
 		Statement stmt = null;
-		String Query = "select * from Users join UsersTypes where Username=" + user.username + " and Password = " + user.password;
+		String Query = "select * from Users join UsersTypes where Username=" + user.username + " and Password = "
+				+ user.password;
 
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
-			boolean more = rs.next();
 
-			// if user does not exist set the isValid variable to false
-			if (!more) {
-				System.out.println("Sorry, you are not a registered user! Please sign up first");
-			}
+			user.name = rs.getString("Name");
+			user.usertype = rs.getString("UserType");
 
-			// if user exists set the isValid variable to true
-			else if (more) {
-				user.name = rs.getString("Name");
-				user.usertype = rs.getString("UserType");
-			}
 		}
 
 		catch (Exception ex) {
@@ -157,7 +150,57 @@ public class UserDBAccess {
 	 * @return
 	 */
 	public boolean checkUser(User user) {
-		// TODO implement here
+		Statement stmt = null;
+		String Query = "select * from Users join UsersTypes where Username=" + user.username + " and Password = "
+				+ user.password;
+
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			boolean more = rs.next();
+
+			// if user does not exist set the isValid variable to false
+			if (!more) {
+				return false;
+			}
+
+			else if (more) {
+				return true;
+			}
+		}
+
+		catch (Exception ex) {
+			System.out.println("Checking failed: An Exception has occurred! " + ex);
+		}
+
+		// some exception handling
+		finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (Exception e) {
+				}
+				rs = null;
+			}
+
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+				}
+				stmt = null;
+			}
+
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
+		}
 		return false;
 	}
 
