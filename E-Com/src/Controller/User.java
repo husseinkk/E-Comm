@@ -1,26 +1,24 @@
 package Controller;
 
-import java.util.*;
-
 /**
  * 
  */
-public interface User {
+public abstract class User {
 
     /**
      * 
      */
-    public string username;
+    public String username;
 
     /**
      * 
      */
-    public string password;
+    public String password;
 
     /**
      * 
      */
-    public string name;
+    public String name;
 
     /**
      * 
@@ -30,6 +28,6 @@ public interface User {
     /**
      * 
      */
-    public UserType usertype;
+    public String usertype;
 
 }

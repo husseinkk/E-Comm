@@ -26,7 +26,7 @@ public class WorkYear {
     /**
      * 
      */
-    private string description;
+    private String description;
 
     /**
      * 
@@ -41,9 +41,8 @@ public class WorkYear {
      * @param type 
      * @return
      */
-    public void WorkYear(int score, Date dueDate, string description, WorkType type) {
+    public void WorkYear(int score, Date dueDate, String description, WorkType type) {
         // TODO implement here
-        return null;
     }
 
     /**
