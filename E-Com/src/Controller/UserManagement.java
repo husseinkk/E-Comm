@@ -1,6 +1,7 @@
 package Controller;
 
 import java.util.*;
+import DataAccess.UserDBAccess;
 
 /**
  * 
@@ -28,6 +29,13 @@ public class UserManagement {
      */
     public User signIn(User user) {
         // TODO implement here
+    	UserDBAccess u = new UserDBAccess();
+    	if(u.checkUser(user));{
+    		u.signIn(user);
+    		System.out.print("Welcome, " + user.name);
+    		//Home.jsp
+    	}
+    	//InvalidLogin.jsp
         return null;
     }
 
@@ -36,7 +44,7 @@ public class UserManagement {
      * @return
      */
     public boolean addUser(User user) {
-        // TODO implement here
+        // TODO implement here 
         return false;
     }
 
