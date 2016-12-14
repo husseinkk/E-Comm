@@ -6,7 +6,6 @@ import java.sql.Statement;
 import Controller.Course;
 import Controller.Teacher;
 import Controller.User;
-import Controller.UserType;
 
 /**
  * 
