@@ -1,0 +1,82 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #000000;
+  max-width: 800px;
+  margin: 0 auto 100px;
+  padding: 50px;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  outline: 2;
+  background: #DADADA;
+  width: 125%;
+  border-width: 4px;  
+  border-style: solid;
+  border-color: #1D26E0;
+  margin: 0 10 0px;
+  padding: 10px 30px;
+  box-sizing: border-box;
+  font-size: 25px;
+  text-align: left;
+}
+.form button {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #FFB6C1;
+  width: 125%;
+  border: 0;
+  padding: 10px 30px;
+  color: #630000;
+  font-size: 25px;
+  font-weight: bold;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+
+.form button:focus,.form button:hover{
+  animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+body {
+    height: 630px;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(red, yellow); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(red, yellow); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(red, yellow); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(black, #0C0C0C); /* Standard syntax */
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
