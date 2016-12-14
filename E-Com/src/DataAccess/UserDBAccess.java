@@ -205,6 +205,10 @@ public class UserDBAccess {
 		}
 		return false;
 	}
+	public boolean isUserFound(User user) {
+		
+		return false;
+	}
 
 	/**
 	 * @param rate
