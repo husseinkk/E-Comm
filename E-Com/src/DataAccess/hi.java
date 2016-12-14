@@ -12,6 +12,7 @@ public class hi {
 		user.password = "1";
 		UserDBAccess u = new UserDBAccess();
 		u.signIn(user);
+		System.out.println(user.username + " " + user.password + " " + user.name + " " +user.usertype);
 	}
 
 }
