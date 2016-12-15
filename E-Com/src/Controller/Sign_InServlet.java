@@ -41,12 +41,11 @@ public class Sign_InServlet extends javax.servlet.http.HttpServlet{
 		UserDBAccess ua = new UserDBAccess();
 		User user = new User();
 		String username = request.getParameter("un");
-		System.out.println(username);
 		String password = request.getParameter("pass");
 		user.name = username;
 		user.password = password;
-		if(true){
-			/*user = ua.signIn(user);*/
+		if(ua.checkUser(user)){
+			user = ua.signIn(user);
 			request.setAttribute("user", user);
 			request.getRequestDispatcher("Home.jsp").forward(request, response);			
 		}
