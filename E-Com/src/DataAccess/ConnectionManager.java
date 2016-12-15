@@ -28,7 +28,7 @@ public class ConnectionManager {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
 			try {
-				serverPath = "jdbc:sqlserver://RANA;databaseName=E-Comm;;integratedSecurity=true;";
+				serverPath = "jdbc:sqlserver://127.0.0.1;databaseName=E-Comm;;integratedSecurity=true;";
 				con = DriverManager.getConnection(serverPath);
 			}
 
