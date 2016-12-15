@@ -38,15 +38,7 @@ public class Sign_InServlet extends javax.servlet.http.HttpServlet{
 		// TODO Auto-generated method stub
 		/*doGet(request, response);*/
 		UserManagement u = new UserManagement();
-		try {
-			UserDBAccess ua = new UserDBAccess();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		UserDBAccess ua = new UserDBAccess();
 		User user = new User();
 		String username = request.getParameter("un");
 		System.out.println(username);
