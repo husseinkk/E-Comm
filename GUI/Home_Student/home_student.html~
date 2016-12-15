@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+      <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <nav class="menu" tabindex="0">
+	<div class="smartphone-menu-trigger"></div>
+  <header class="profile">
+    <h2>Welcome,</h2>
+  </header>
+	<ul>
+    <li tabindex="0" class="icon-Dashboard"><span>Dashboard</span></li>
+    <li tabindex="0" class="icon-Courses"><span>Courses</span></li>
+    <li tabindex="0" class="icon-Grades"><span>Gradess</span></li>
+  </ul>
+</nav>
+
+
+<main>
+
+</main>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
