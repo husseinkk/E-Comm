@@ -9,12 +9,11 @@
 
 </head>
 <body>
-  <div class="login-page">
   <div class="form">
-    <form class="login-form">
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-       <a href="home.html"><button>Sign in</button></a>
+    <form action="SignInServlet" method="post">
+      <input type="text" placeholder="Username" name="un"/>
+      <input type="password" placeholder="Password" name= "pass"/>
+       <input type="submit" value="Sign In">
     </form>
   </div>
 </div>
