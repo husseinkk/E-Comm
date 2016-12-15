@@ -149,8 +149,7 @@ public class UserDBAccess {
 	 * @param user
 	 * @return
 	 */
-	public boolean checkUser(User user) {
-		//join UserTypes on Users.UserTypeID = UserTypes.UserTypeID 
+	public boolean checkUser(User user) { 
 		Statement stmt = null;
 		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username=" + user.username + " and Password = "
 				+ user.password;
@@ -205,10 +204,7 @@ public class UserDBAccess {
 		}
 		return false;
 	}
-	public boolean isUserFound(User user) {
-		
-		return false;
-	}
+	
 
 	/**
 	 * @param rate

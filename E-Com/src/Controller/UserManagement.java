@@ -1,6 +1,5 @@
 package Controller;
 
-import java.util.*;
 import DataAccess.UserDBAccess;
 
 public class UserManagement {
@@ -29,7 +28,7 @@ public class UserManagement {
 	public boolean addUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
-		if (!u.isUserFound(user)) {
+		if (!u.checkUser(user)) {
 			u.addUser(user);
 			return true;
 		} else
@@ -39,7 +38,7 @@ public class UserManagement {
 	public boolean removeUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
-		if (u.isUserFound(user)) {
+		if (u.checkUser(user)) {
 			u.removeUser(user.username);
 			return true;
 		} else
@@ -49,7 +48,7 @@ public class UserManagement {
 	public boolean editUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
-		if (u.isUserFound(user)) {
+		if (u.checkUser(user)) {
 			u.editUser(user);
 			return true;
 		} else
@@ -59,7 +58,7 @@ public class UserManagement {
 	public boolean rateTeacher(int rate, Teacher teacher) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
-		if (u.isUserFound(teacher)) {
+		if (u.checkUser(teacher)) {
 			u.rateTeacher(rate, teacher);
 			return true;
 		} else
