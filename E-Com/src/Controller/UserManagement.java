@@ -34,6 +34,11 @@ public class UserManagement {
 		} else
 			return false;
 	}
+	public boolean checkUser(User user) {
+		// TODO implement here
+		UserDBAccess u = new UserDBAccess();
+			return u.checkUser(user);
+	}
 
 	public boolean removeUser(User user) {
 		// TODO implement here
