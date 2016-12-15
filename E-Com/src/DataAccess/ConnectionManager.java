@@ -8,17 +8,47 @@ import java.sql.SQLException;
  * 
  */
 public class ConnectionManager {
-	private java.sql.Connection conn;
-	public ConnectionManager() throws ClassNotFoundException, SQLException{
-		// TODO Auto-generated method stub
-		String url = "jdbc:sqlserver://localhost;databaseName=Akinator;integratedSecurity=true";
-		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		conn =  DriverManager.getConnection(url);
 
+	static String serverPath;
+	static Connection con;
+
+	/**
+	 * Default constructor
+	 */
+	public ConnectionManager() {
+		serverPath = "jdbc:sqlserver://[RANA[\\E-Com]";
 	}
-	
-	public java.sql.Connection getConnection(){
-		return conn;
+
+	/**
+	 * @return
+	 */
+	public static Connection getConnection() {
+		try {
+			
+			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+
+			try {
+				serverPath = "jdbc:sqlserver://127.0.0.1;databaseName=E-Comm;;integratedSecurity=true;";
+				con = DriverManager.getConnection(serverPath);
+			}
+
+			catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+
+		catch (ClassNotFoundException e) {
+			System.out.println(e);
+		}
+
+		return con;
 	}
+
+	/**
+     * @return
+     */
+    public void closeConnection() {
+        // TODO implement here
+    }
 
 }

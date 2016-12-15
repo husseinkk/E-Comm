@@ -2,7 +2,6 @@ package DataAccess;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import Controller.Course;
 import Controller.Teacher;
@@ -13,17 +12,13 @@ import Controller.User;
  */
 public class UserDBAccess {
 
-	static ConnectionManager Con = null;
+	static Connection currentCon = null;
 	static ResultSet rs = null;
-	static java.sql.Connection currentCon;
 
 	/**
 	 * Default constructor
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
 	 */
-	public UserDBAccess() throws ClassNotFoundException, SQLException {
-		Con = new ConnectionManager();
+	public UserDBAccess() {
 	}
 
 	/**
@@ -33,18 +28,17 @@ public class UserDBAccess {
 	/**
 	 * @param user
 	 * @return
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
 	 */
-	public User signIn(User user) throws ClassNotFoundException, SQLException {
+	public User signIn(User user) {
 		Statement stmt = null;
-		String Query = "select * from Users join UsersTypes where Username=" + user.username + " and Password = "
+		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username=" + user.username + " and Password = "
 				+ user.password;
+
 		try {
-			
-			currentCon = Con.getConnection();
+			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
+			rs.next();
 
 			user.name = rs.getString("Name");
 			user.usertype = rs.getString("UserType");
@@ -146,21 +140,23 @@ public class UserDBAccess {
 	 * @param type
 	 * @return
 	 */
-/*	public User[] selectUser(Course course, UserType type) {
+	public User[] selectUser(Course course, String type) {
 		// TODO implement here
 		return null;
-	}*/
+	}
 
 	/**
 	 * @param user
 	 * @return
 	 */
-	public boolean checkUser(User user) {
+	public boolean checkUser(User user) { 
 		Statement stmt = null;
-		String Query = "select * from Users join UsersTypes where Username=" + user.username + " and Password = "
+		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username=" + user.username + " and Password = "
 				+ user.password;
+
+
 		try {
-			currentCon = Con.getConnection();
+			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			boolean more = rs.next();
@@ -208,6 +204,7 @@ public class UserDBAccess {
 		}
 		return false;
 	}
+	
 
 	/**
 	 * @param rate
