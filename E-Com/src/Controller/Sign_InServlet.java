@@ -38,14 +38,13 @@ public class Sign_InServlet extends javax.servlet.http.HttpServlet{
 		// TODO Auto-generated method stub
 		/*doGet(request, response);*/
 		UserManagement u = new UserManagement();
-		UserDBAccess ua = new UserDBAccess();
 		User user = new User();
 		String username = request.getParameter("un");
 		String password = request.getParameter("pass");
 		user.name = username;
 		user.password = password;
-		if(ua.checkUser(user)){
-			user = ua.signIn(user);
+		if(u.checkUser(user)){
+			user = u.signIn(user);
 			request.setAttribute("user", user);
 			request.getRequestDispatcher("Home.jsp").forward(request, response);			
 		}
