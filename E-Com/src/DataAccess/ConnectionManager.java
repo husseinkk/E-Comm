@@ -25,11 +25,12 @@ public class ConnectionManager {
 	public static Connection getConnection() {
 		try {
 			
-			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+			Class.forName("com.mysql.jdbc.Driver");
 
 			try {
-				serverPath = "jdbc:sqlserver://127.0.0.1;databaseName=E-Comm;;integratedSecurity=true;";
-				con = DriverManager.getConnection(serverPath);
+				serverPath = "jdbc:mysql://localhost:3306/e-comm?autoReconnect=true&useSSL=false";
+
+				con = DriverManager.getConnection(serverPath , "root" , "20146007");
 			}
 
 			catch (SQLException ex) {

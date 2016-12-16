@@ -3,11 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sqljdbc4.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="E-Com"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="F:/Program Files/apache-tomcat-7.0.68-windows-x86/apache-tomcat-7.0.68/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="F:/Programs/mysql-connector-java-5.1.40/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
