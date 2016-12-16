@@ -17,11 +17,10 @@ public class UserManagement {
 		UserDBAccess u = new UserDBAccess();
 		if (u.checkUser(user))
 		{
-			u.signIn(user);
+			user = u.signIn(user);
 			System.out.print("Welcome, " + user.name);
-			// Home.jsp
+			return user;
 		}
-		// InvalidLogin.jsp
 		return null;
 	}
 

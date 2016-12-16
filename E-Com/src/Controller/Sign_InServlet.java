@@ -24,31 +24,33 @@ import DataAccess.UserDBAccess;
  * Servlet implementation class Sign_InServlet
  */
 
-public class Sign_InServlet extends javax.servlet.http.HttpServlet{
+public class Sign_InServlet extends javax.servlet.http.HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Sign_InServlet() {
-        // TODO Auto-generated constructor stub
-    }
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public Sign_InServlet() {
+		// TODO Auto-generated constructor stub
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*doGet(request, response);*/
+		/* doGet(request, response); */
 		UserManagement u = new UserManagement();
 		User user = new User();
 		String username = request.getParameter("un");
 		String password = request.getParameter("pass");
-		user.name = username;
+		user.username = username;
 		user.password = password;
-		if(u.checkUser(user)){
-			user = u.signIn(user);
+		user = u.signIn(user);
+		if (user != null)	{
 			request.setAttribute("user", user);
-			request.getRequestDispatcher("Home.jsp").forward(request, response);			
+			request.getRequestDispatcher("Home.jsp").forward(request, response);
 		}
-		
 	}
 
 }
