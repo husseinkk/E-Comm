@@ -1,0 +1,175 @@
+body
+        {
+            padding: 0;
+            margin: 0;
+            background-color: black;
+        }
+
+        .notify
+        {
+            font-size: 25px;
+            color: #fecbf9;
+            padding: 0;
+            margin: 0;
+            float: right;
+            position: relative;
+            top: -48px;
+            left: 15px;
+            vertical-align: middle;
+            margin-right: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .notifications
+        { 
+               visibility: hidden;
+               opacity: 1;
+            margin: 0;
+            padding: 0;
+        }
+        .notify:hover > notifications
+        {
+            opacity: 1;
+            visibility: visible;
+        }
+        .notify:hover
+        {
+            transform: rotate(20deg);
+            transition-duration: 0.2s;
+        }
+        .menu
+        {
+            width: 230px;
+            z-index: 150;
+        }
+        .menu ul
+        {
+            height: 100%;
+            font-family: sans-serif;
+            font-weight: bold;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 230px;
+            background-color: #39679f;
+            border-right: 5px solid #fecbf9;;
+            
+        }
+        .menu ul li
+        {
+            margin-bottom: 0;
+            color: #FFFEFF;
+            padding: 15px;
+            position: relative;
+            width: 200px;
+            vertical-align: middle;
+            background-color: #39679f;
+            border-color:#fecbf9;
+            cursor: pointer;
+
+        }
+        .menu ul > li:hover
+        {
+            font-size: 20px;
+            padding: 15px;
+            width:205px;
+            position: relative;
+            vertical-align: middle;
+            background-color: #111418;
+            color: #fecbf9;
+        } 
+        .menu ul > li:hover span
+        {
+            font-size: 18px;
+            color: #fecbf9;
+            margin-right: 15px;
+        }
+        .menu > ul > li
+        {
+            border-right: 5px solid #fecbf9;
+            
+        }
+        .menu ul ul
+        {
+            transition: all 0.4s;
+            opacity: 0;
+            border-left: 3px solid #fecbf9;
+            border-right: 0px solid #fecbf9; 
+            position: absolute;
+            visibility: hidden;
+            left: 99%;
+            top:-1%;
+
+        }
+        .menu ul li:hover > ul
+        {
+            position: absolute;
+            width:auto;
+            opacity: 1;
+            visibility: visible;
+            border-right: 0px solid #fecbf9
+            
+        }
+        .menu ul li a
+        {
+            
+            text-decoration: none;
+            
+        }
+        .menu ul li a:hover
+        {
+            text-decoration: none;
+            
+        }
+        span
+        {
+            color: #FFFFEF;
+            margin-right: 15px;
+        }
+        .menu ul ul
+        {
+            color: #FFFFEF;
+            margin-right: 15px;
+        }
+        h2
+        {
+            font-family: sans-serif;
+            padding: 10px;
+        }
+        .content
+        {
+            width: 800px;
+            background-color: aquamarine;
+
+        }
+        .gpa
+        {
+            background-color: #39679f;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            width: 400px;
+            height: 250px;
+        }
+        .content form
+        {
+            position: absolute;
+            top: 20px;
+            left: 275px;
+            padding: 0;
+            z-index: -30;
+            
+        }
+        .content form header
+        {
+            position: relative;
+            color: #fecbf9;
+            top: -12px; 
+            background-size: 400px 50px;
+            background-color: #39679f;
+            background-image: linear-gradient(#39679f,#8fafd6 );
+            background-repeat: no-repeat;
+            margin-top: 20px;
+            padding-top: -2px;
+        }
+
+
