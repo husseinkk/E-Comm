@@ -28,17 +28,17 @@ public class addUserServlet extends javax.servlet.http.HttpServlet {
 		/* doGet(request, response); */
 		UserManagement u = new UserManagement();
 		User user = new User();
+		String name = request.getParameter("name");
 		String username = request.getParameter("un");
 		String usertype = request.getParameter("type");
 		String password = request.getParameter("pass");
-		String name = request.getParameter("name");
-		user.usertype = usertype;
-		user.password = password;
 		user.name = name;
 		user.username = username;
+		user.usertype = usertype;
+		user.password = password;
 		if(!u.isUser(user)){
 			u.addUser(user);
-			request.getRequestDispatcher("Users.jsp").forward(request, response);
+			request.getRequestDispatcher("Home.jsp").forward(request, response);
 		}
 	}
 
