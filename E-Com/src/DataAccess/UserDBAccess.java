@@ -93,7 +93,6 @@ public class UserDBAccess {
 			rs = stmt.executeQuery(Query);
 			boolean more = rs.next();
 			
-			// if user does not exist set the isValid variable to false
 			if (!more) {
 				return false;
 			}
@@ -137,6 +136,59 @@ public class UserDBAccess {
 		return false;
 	}
 	
+	public boolean isUser(User user) { 
+		Statement stmt = null;
+		String Query = "select * from Users where Username=" + user.username ;
+		
+		
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			boolean more = rs.next();
+			
+			if (!more) {
+				return false;
+			}
+			
+			else if (more) {
+				return true;
+			}
+		}
+		
+		catch (Exception ex) {
+			System.out.println("Checking failed: An Exception has occurred! " + ex);
+		}
+		
+		// some exception handling
+		finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (Exception e) {
+				}
+				rs = null;
+			}
+			
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (Exception e) {
+				}
+				stmt = null;
+			}
+			
+			if (currentCon != null) {
+				try {
+					currentCon.close();
+				} catch (Exception e) {
+				}
+				
+				currentCon = null;
+			}
+		}
+		return false;
+	}
 	
 	/**
 	 * @param user
