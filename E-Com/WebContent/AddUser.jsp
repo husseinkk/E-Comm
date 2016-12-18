@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
   <title>Add User</title>
-      <link rel="stylesheet" href="/E-Com/sign_in_style.css">
+      <link rel="stylesheet" href="/E-Com/Add_user_style.css">
 
 </head>
 <body>
