@@ -5,18 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
   <title>Add User</title>
-      <link rel="stylesheet" href="/E-Com/add_user_style.css">
+      <link rel="stylesheet" href="/E-Com/sign_in_style.css">
 
 </head>
 <body>
   <div class="form">
     <form action="addUserServlet" method="post">
-      <input type="text" placeholder="Username" name="un"/>
-      <input type="password" placeholder="Password" name= "pass"/>
       <input type="text" placeholder="name" name="name"/>
-      <input type="text" placeholder="userID" name= "ID"/>
-      <input type="text" placeholder="usertypr" name= "type"/>
-       <input type="submit" value="Sign In">
+      <input type="text" placeholder="Username" name="un"/>
+      <input type="text" placeholder="Password" name= "pass"/>
+      <input type="text" placeholder="usertype" name= "type"/>
+       <input type="submit" value="Add User">
     </form>
   </div>
 </div>

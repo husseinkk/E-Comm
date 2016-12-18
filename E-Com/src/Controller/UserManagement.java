@@ -27,10 +27,18 @@ public class UserManagement {
 	public boolean addUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
-		if (!u.checkUser(user)) {
+		if (!u.isUser(user)) {
 			u.addUser(user);
 			return true;
 		} else
+			return false;
+	}
+	public boolean isUser(User user) {
+		// TODO implement here
+		UserDBAccess u = new UserDBAccess();
+		if (u.isUser(user)) 
+			return true;
+		else
 			return false;
 	}
 	public boolean checkUser(User user) {
