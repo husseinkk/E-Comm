@@ -137,26 +137,30 @@ public class UserDBAccess {
 		return false;
 	}
 	
-	public Student selectStudent(User user){
-		Student student = new Student();
-		student = (Student) user;
+	
+	/**
+	 * @param user
+	 * @return
+	 */
+	public boolean addUser(User user) {
+		// TODO implement here
 		Statement stmt = null;
-		String Query = "select * from Students join  on Users.UserTypeID = UserTypes.UserTypeID where Username=" + user.username + " and Password = "
-				+ user.password;
+		String Query = "select UserTypeID from userTypes where UserType = "  + user.usertype;
 
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			rs.next();
-
-			user.name = rs.getString("Name");
-			user.usertype = rs.getString("UserType");
+			int id = rs.getInt("UserTypeID");
+			Query = "insert into users (Username, Password, Name, userTypeID) values (" + user.username + ", " +
+					user.password + ", " + user.name + ", " + id + ")";
 
 		}
 
 		catch (Exception ex) {
 			System.out.println("Log In failed: An Exception has occurred! " + ex);
+			return false;
 		}
 
 		// some exception handling
@@ -187,16 +191,7 @@ public class UserDBAccess {
 			}
 		}
 
-		return student;
-	}
-
-	/**
-	 * @param user
-	 * @return
-	 */
-	public boolean addUser(User user) {
-		// TODO implement here
-		return false;
+		return true;
 	}
 
 	/**
