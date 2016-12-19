@@ -4,9 +4,9 @@
              var longEntry = 
                 '<form id=\"form-style-1\" action="addUserServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
-                <label>Name <input type="text" placeholder="Name"/></label>\
-                <label>Username <input type="text" placeholder="Username"/></label>\
-                <label>Password <input type="text" placeholder="Password"/></label>\
+                <label>Name <input type="text" placeholder="Name" name="name"/></label>\
+                <label>Username <input type="text" placeholder="Username" name="un"/></label>\
+                <label>Password <input type="text" placeholder="Password" name="pass"/></label>\
                 <label>Type\
                 <select name="type">\
                 <option value="admin">Admin</option>\

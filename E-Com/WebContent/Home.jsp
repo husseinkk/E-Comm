@@ -19,7 +19,7 @@
             <ul>
                 <div id="avatar">
                 <%User user = (User)request.getAttribute("user"); %>
-                <label>Hello, <% %></label>
+                <label>Hello, <%out.print(user.name);%></label>
                 </div>
                 <li><span class="fa fa-home"> Dashboard</span></li>
                 <li><span class="fa fa-users"> Users</span>
