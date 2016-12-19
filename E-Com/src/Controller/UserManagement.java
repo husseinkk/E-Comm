@@ -28,8 +28,7 @@ public class UserManagement {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
 		if (!u.isUser(user)) {
-			u.addUser(user);
-			return true;
+			return u.addUser(user);
 		} else
 			return false;
 	}
