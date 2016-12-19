@@ -36,10 +36,8 @@ public class addUserServlet extends javax.servlet.http.HttpServlet {
 		user.username = username;
 		user.usertype = usertype;
 		user.password = password;
-		if(!u.isUser(user)){
-			u.addUser(user);
-			request.getRequestDispatcher("Home.jsp").forward(request, response);
-		}
+		u.addUser(user);
+		request.getRequestDispatcher("AddUser.jsp").forward(request, response);
 	}
 
     /**
