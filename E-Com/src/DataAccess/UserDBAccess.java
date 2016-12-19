@@ -32,8 +32,8 @@ public class UserDBAccess {
 	 */
 	public User signIn(User user) {
 		Statement stmt = null;
-		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username=" + user.username + " and Password = "
-				+ user.password;
+		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username= \"" + user.username + "\" and Password = \""
+				+ user.password + "\"";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -83,8 +83,8 @@ public class UserDBAccess {
 	
 	public boolean checkUser(User user) { 
 		Statement stmt = null;
-		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username=" + user.username + " and Password = "
-				+ user.password;
+		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username= \"" + user.username + "\" and Password = \""
+				+ user.password + "\"";
 		
 		
 		try {
@@ -138,7 +138,7 @@ public class UserDBAccess {
 	
 	public boolean isUser(User user) { 
 		Statement stmt = null;
-		String Query = "select * from Users where Username=" + user.username ;
+		String Query = "select * from Users where Username= \"" + user.username + "\"";
 		
 		
 		try {
@@ -205,8 +205,8 @@ public class UserDBAccess {
 			rs = stmt.executeQuery(Query);
 			rs.next();
 			int id = rs.getInt("UserTypeID");
-			Query = "insert into users (Username, Password, Name, userTypeID) values (" + user.username + ", " +
-					user.password + ", \"" + user.name + "\", " + id + ")";
+			Query = "insert into users (Username, Password, Name, userTypeID) values ( \"" + user.username + "\", \"" +
+					user.password + "\", \"" + user.name + "\", " + id + ")";
 			stmt.executeUpdate(Query);
 
 		}
