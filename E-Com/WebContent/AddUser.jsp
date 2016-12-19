@@ -6,7 +6,7 @@
 <head>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   <link href="addUser_Style.css" rel="stylesheet"/>
-  <title>Home</title>
+  <title>Add User</title>
 </head>
 <body>
   <div class="menu">
@@ -45,10 +45,10 @@
     </ul>
   </div>
     <form class="design2" action="addUserServlet" method="post">
-        <span class="fa fa-close close"></span>
+        <!-- <span class="fa fa-close close"></span> -->
       	<label style="color: #39679f;">Name <input placeholder="Name" type="text" name="name"/></label> 
-        <label style="color: #39679f;">Username <input placeholder="username" type="text" name="un"/></label> 
-        <label style="color: #39679f;">Password <input placeholder="password" type="text" name="pass"/></label> 
+        <label style="color: #39679f;">Username <input placeholder="Username" type="text" name="un"/></label> 
+        <label style="color: #39679f;">Password <input placeholder="Password" type="text" name="pass"/></label> 
         <label style="color: #39679f; position:relative;">Type <select name="type">
         <option value="Admin"> Admin </option>
         <option value="Student"> Student </option>
@@ -59,4 +59,5 @@
     </form>
 
 </body>
+
 </html>
