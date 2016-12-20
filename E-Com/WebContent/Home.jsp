@@ -18,7 +18,9 @@
         <div id="menuLeft">
             <ul>
                 <div id="avatar">
-                <%User user = (User)request.getAttribute("user"); %>
+                <%User user = (User)request.getAttribute("user"); 
+                	session.setAttribute("user", user);
+                %>
                 <label>Hello, <%out.print(user.name);%></label>
                 </div>
                 <li><span class="fa fa-home"> Dashboard</span></li>
