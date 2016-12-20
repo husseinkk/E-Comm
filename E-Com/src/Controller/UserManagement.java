@@ -18,7 +18,7 @@ public class UserManagement {
 		if (u.checkUser(user))
 		{
 			user = u.signIn(user);
-			System.out.print("Welcome, " + user.name);
+			System.out.println("Welcome, " + user.name);
 			return user;
 		}
 		return null;

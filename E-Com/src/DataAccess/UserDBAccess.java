@@ -52,33 +52,22 @@ public class UserDBAccess {
 		}
 
 		// some exception handling
-		finally {
+		try {
 			if (rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {
-				}
+				rs.close();
 				rs = null;
 			}
-
 			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (Exception e) {
-				}
+				stmt.close();
 				stmt = null;
 			}
-
 			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
-
+				currentCon.close();
 				currentCon = null;
 			}
-		}
+		} catch (Exception e) {
 
+		}
 		return user;
 	}
 
@@ -177,7 +166,7 @@ public class UserDBAccess {
 		// TODO implement here
 		Statement stmt = null;
 		int userID;
-		String Query = "select UserTypeID from userTypes where UserType = \"" + user.usertype + "\" ";
+		String Query = "select UserTypeID from usertypes where UserType = \"" + user.usertype + "\" ";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -305,7 +294,39 @@ public class UserDBAccess {
 	 */
 	public boolean removeUser(String username) {
 		// TODO implement here
-		return false;
+		Statement stmt = null;
+		String Query = "delete from users where Username = \"" + username + "\"";
+
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			stmt.executeUpdate(Query);
+		}
+
+		catch (Exception ex) {
+			System.out.println("AddUser failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+		return true;
+
 	}
 
 	/**

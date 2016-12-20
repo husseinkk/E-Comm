@@ -8,10 +8,10 @@ function addUser() {
                 <label>Password <input type="text" placeholder="Password" name="pass"/></label>\
                 <label>Type\
                 <select name="type" id="c">\
-                <option value="admin">Admin</option>\
-                <option value="student">Student</option>\
-                <option value="teacher">Teacher</option></select></label>\
-                <label><input type="submit" onclick="path(document.getElementById(\'c\').value)"/></label>\
+                <option value="Admin">Admin</option>\
+                <option value="Student">Student</option>\
+                <option value="Teacher">Teacher</option></select></label>\
+                <label><input type="submit"  onclick="path(document.getElementById(\'c\').value)"/></label>\
                 </form>';
     document.getElementById("content").innerHTML = longEntry;
   }
@@ -32,7 +32,7 @@ function addUser() {
     if (a == "student") {
       document.getElementById("content").innerHTML = "";
       var longEntry =
-        '<form id=\"form-style-1" method="" action="">\
+        '<form id=\"form-style-1" method="post" action="addUserServlet">\
                 <button href="#" class="close"> X </button>\
                 <label>Student ID <input type="text" placeholder="Student ID" name="studID"/></label>\
                 <label>Department\
