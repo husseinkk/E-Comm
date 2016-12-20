@@ -1,5 +1,4 @@
 
-
 package DataAccess;
 
 import java.sql.Connection;
@@ -34,8 +33,8 @@ public class UserDBAccess {
 	 */
 	public User signIn(User user) {
 		Statement stmt = null;
-		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username= \"" + user.username + "\" and Password = \""
-				+ user.password + "\"";
+		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username= \""
+				+ user.username + "\" and Password = \"" + user.password + "\"";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -82,124 +81,103 @@ public class UserDBAccess {
 
 		return user;
 	}
-	
-	public boolean checkUser(User user) { 
+
+	public boolean checkUser(User user) {
 		Statement stmt = null;
-		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username= \"" + user.username + "\" and Password = \""
-				+ user.password + "\"";
-		
-		
+		String Query = "select * from Users join UserTypes on Users.UserTypeID = UserTypes.UserTypeID where Username= \""
+				+ user.username + "\" and Password = \"" + user.password + "\"";
+
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			boolean more = rs.next();
-			
+
 			if (!more) {
 				return false;
 			}
-			
+
 			else if (more) {
 				return true;
 			}
 		}
-		
+
 		catch (Exception ex) {
 			System.out.println("Checking failed: An Exception has occurred! " + ex);
 		}
-		
+
 		// some exception handling
-		finally {
+		try {
 			if (rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {
-				}
+				rs.close();
 				rs = null;
 			}
-			
 			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (Exception e) {
-				}
+				stmt.close();
 				stmt = null;
 			}
-			
 			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
-				
+				currentCon.close();
 				currentCon = null;
 			}
+		} catch (Exception e) {
+
 		}
 		return false;
 	}
-	
-	public boolean isUser(User user) { 
+
+	public boolean isUser(User user) {
 		Statement stmt = null;
 		String Query = "select * from Users where Username= \"" + user.username + "\"";
-		
-		
+
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			boolean more = rs.next();
-			
+
 			if (!more) {
 				return false;
 			}
-			
+
 			else if (more) {
 				return true;
 			}
 		}
-		
+
 		catch (Exception ex) {
 			System.out.println("Checking failed: An Exception has occurred! " + ex);
 		}
-		
+
 		// some exception handling
-		finally {
+		try {
 			if (rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {
-				}
+				rs.close();
 				rs = null;
 			}
-			
 			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (Exception e) {
-				}
+				stmt.close();
 				stmt = null;
 			}
-			
 			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
-				
+				currentCon.close();
 				currentCon = null;
 			}
+		} catch (Exception e) {
+
 		}
 		return false;
 	}
-	
+
 	/**
 	 * @param user
 	 * @return
 	 */
-	public boolean addUser(User user) {
+	public int addUser(User user) {
 		// TODO implement here
 		Statement stmt = null;
-		String Query = "select UserTypeID from userTypes where UserType = \""  + user.usertype + "\" ";
+		int userID;
+		String Query = "select UserTypeID from userTypes where UserType = \"" + user.usertype + "\" ";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -207,8 +185,49 @@ public class UserDBAccess {
 			rs = stmt.executeQuery(Query);
 			rs.next();
 			int id = rs.getInt("UserTypeID");
-			Query = "insert into users (Username, Password, Name, userTypeID) values ( \"" + user.username + "\", \"" +
-					user.password + "\", \"" + user.name + "\", " + id + ")";
+			Query = "insert into users (Username, Password, Name, userTypeID) values ( \"" + user.username + "\", \""
+					+ user.password + "\", \"" + user.name + "\", " + id + ")";
+			userID = stmt.executeUpdate(Query);
+		}
+
+		catch (Exception ex) {
+			System.out.println("AddUser failed: An Exception has occurred! " + ex);
+			return -1;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+		return userID;
+	}
+
+	public boolean addStudent(Student st) {
+		// TODO implement here
+		Statement stmt = null;
+		String Query = "select DepartmentID from departments where DepartmentName = \"" + st.dept + "\" ";
+
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int id = rs.getInt("UserTypeID");
+			Query = "insert into students (DepartmentID , UserID , StudentID) values ( " + id + ", "
+					+ st.userID + ", " + st.studID + ")";
 			stmt.executeUpdate(Query);
 
 		}
@@ -219,33 +238,64 @@ public class UserDBAccess {
 		}
 
 		// some exception handling
-		finally {
+		try {
 			if (rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {
-				}
+				rs.close();
 				rs = null;
 			}
-
 			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (Exception e) {
-				}
+				stmt.close();
 				stmt = null;
 			}
-
 			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-				}
-
+				currentCon.close();
 				currentCon = null;
 			}
+		} catch (Exception e) {
+
+		}
+		return true;
+	}
+
+	public boolean addTeacher(Teacher t) {
+		// TODO implement here
+		Statement stmt = null;
+		String Query = "select DepartmentID from departments where DepartmentName = \"" + t.dept + "\" ";
+
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int id = rs.getInt("UserTypeID");
+			Query = "insert into students (DepartmentID , UserID) values ( " + id + ", "
+					+ t.userID + ")";
+			stmt.executeUpdate(Query);
+
 		}
 
+		catch (Exception ex) {
+			System.out.println("AddUser failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
 		return true;
 	}
 
@@ -309,7 +359,6 @@ public class UserDBAccess {
 	 * @param user
 	 * @return
 	 */
-	
 
 	/**
 	 * @param rate
