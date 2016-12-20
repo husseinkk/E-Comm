@@ -24,14 +24,25 @@ public class UserManagement {
 		return null;
 	}
 
-	public boolean addUser(User user) {
+	public int addUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
 		if (!u.isUser(user)) {
 			return u.addUser(user);
 		} else
-			return false;
+			return -1;
 	}
+	
+	public boolean addStudent(Student st){
+		UserDBAccess u = new UserDBAccess();
+		return u.addStudent(st);
+	}
+	
+	public boolean addTeacher(Teacher t){
+		UserDBAccess u = new UserDBAccess();
+		return u.addTeacher(t);
+	}
+	
 	public boolean isUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
