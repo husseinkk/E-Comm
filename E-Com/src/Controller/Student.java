@@ -31,17 +31,17 @@ public class Student extends User {
     /**
      * 
      */
-    private int studID;
+    public String studID;
 
     /**
      * 
      */
-    private int level;
+    public int level;
 
     /**
      * 
      */
-    public string dept;
+    public String dept;
 
 
 

@@ -50,6 +50,9 @@ public class Sign_InServlet extends javax.servlet.http.HttpServlet {
 		if (user != null)	{
 			request.setAttribute("user", user);
 			request.getRequestDispatcher("Home.jsp").forward(request, response);
+		}else{
+			PrintWriter pw = response.getWriter();
+			pw.println("Invalid Username or Password");
 		}
 	}
 

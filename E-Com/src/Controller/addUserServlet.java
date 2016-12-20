@@ -36,7 +36,21 @@ public class addUserServlet extends javax.servlet.http.HttpServlet {
 		user.username = username;
 		user.usertype = usertype;
 		user.password = password;
-		u.addUser(user);
+		
+		int userID = u.addUser(user);
+		if(usertype.equals("student")){
+			Student st = new Student();
+			st.dept = request.getParameter("typeDept");
+			st.studID = request.getParameter("studID");
+			st.userID = userID;
+			u.addStudent(st);
+		}
+		if(usertype.equals("teacher")){
+			Teacher t = new Teacher();
+			t.dept = request.getParameter("typeDept");
+			t.userID = userID;
+			u.addTeacher(t);
+		}
 		request.setAttribute("user", request.getSession().getAttribute("user"));
 		request.getRequestDispatcher("Home.jsp").forward(request, response);
 	}

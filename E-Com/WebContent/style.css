@@ -1,223 +1,294 @@
-#wrapper
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+html 
 {
-    width: 100%;
-    height: 100%;
-    background-color: #111418;
+   font-family: 'Comfortaa', cursive;
 }
-#banner
-{
-    
-    width: 100%;
-    height: 60px;
-    background-color: bisque;
-}
-#menuLeft
-{
-    font-family: monospace;
-    padding: 0;
-    margin: 0;
-    margin-top: -15px; 
-    width: 250px;
-    max-width: 250px;
-    height: 600px;
-    background-color: #39679f;
-}
-#content
-{
-    margin: 0;
-    padding: 0;
-    margin-top: -580px;
-    margin-left: 22.5%;
-    width: 75%;
-    height: 550px;
-    background-color: #111418;
-}
-#avatar
-{
-    background-color: #39679f;
-    width: 120%;
-    height: 100px;
-    float: right;
-    border-bottom: 10px solid #fecbf9;
-}
-#avatar label
-{
-    float: left;
-    position: relative;
-    color: #fecbf9;
-    top:40px;
-    margin-left: 20%;
-}
-#menuLeft #avatar
-{
-    font-size: 20px;
+#wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #111418;
 }
 
-#menuLeft ul
-{
-    width: 210px;
-    height: 100%;
-    background-color: #39679f;
-    z-index: 1;
+#banner {
+  width: 100%;
+  height: 60px;
+  background-color: #fecbf9;
+  z-index: 10;
 }
-#menuLeft ul ul
+
+#banner button {
+  float: right;
+  width: 60px;
+  height: 60px;
+  background: rgba(54, 25, 25, 0);
+  background-image: url("https://s23.postimg.org/66zueu7e3/Untitled_1_opt.png");
+  background-repeat: no-repeat;
+}
+
+#menuLeft {
+  width: 0px;
+  padding: 0;
+  margin: 0;
+  margin-top: -15px;
+  height: 600px;
+  background-color: #39679f;
+  z-index: -20;
+}
+
+#content {
+  margin: 0;
+  padding: 0;
+  margin-top: -580px;
+  margin-left: 22.5%;
+  width: 75%;
+  height: 550px;
+  background-color: #111418;
+}
+
+#avatar {
+  background-color: #39679f;
+  width: 123%;
+  height: 100px;
+  float: right;
+  font-size: 20px;
+  border-bottom: 10px solid #fecbf9;
+}
+
+#avatar label {
+  position: relative;
+  color: #fecbf9;
+  top: 40px;
+  margin-left: 10%;
+}
+#avatar label span
 {
-    transition: all 0.3s;
-    opacity: 0;
+    margin-left: 10%;
+}
+#avatar span:hover
+{
+  transform: rotate(20deg);
+  transition-duration: 0.2s;
+}
+
+#menuLeft #avatar {
+  margin: 0;
+  padding: 0;
+}
+#menuLeft ul {
+  width: 180px;
+  height: 100%;
+  float: left;
+    position: relative;
+  background-color: #39679f;
+    z-index: 2;
+}
+
+#menuLeft ul li {
+  font-size: 5px;
+  margin-left: -15%;
+  width: 120%;
+  float: right;
+  color: aliceblue;
+  height: 40px;
+  background-color: #39679f;
+  border-right: 5px solid #fecbf9;
+  cursor: pointer;
+  z-index: 10;
+}
+
+#menuLeft ul ul {
+  list-style: none;
+  opacity: 0;
+  position: relative;
+  visibility: hidden;
+  font-size: 10px;
+  margin-top: -81%;
+  margin-right: -65%;
+  cursor: pointer;
+  width: 150px;
+}
+
+#menuLeft ul li:hover>span {
+  font-size: 20px;
+}
+
+span {
+  font-size: 10px;
+}
+
+#menuLeft ul li:hover>ul {
+  font-size: 15px;
+  float: right;
+  height: auto;
+  margin-left: -100px;
+  opacity: 1;
+  visibility: visible;
+  top: 176px;
+  left: 25.5%;
+}
+
+#menuLeft ul li:hover {
+  margin-left: -15%;
+  margin-left: 20px;
+  width: 120%;
+  float: right;
+  color: #fecbf9;
+  font-weight: bold;
+  background-color: #111418;
+  border-right: 5px solid #111418;
+  border-bottom: 5px solid #111418;
+}
+
+#menuLeft ul li a {
+  color: aliceblue;
+  font-size: 30px;
+  margin-left: -3%;
+  margin-top: 5%;
+}
+
+#menuLeft ul li span {
+  font-size: 15px;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+#content #form-style-1 {
+  position: relative;
+  float: left;
+  padding: 0;
+  margin-top: 10%;
+  margin-left: 2%;
+  width: 350px;
+  height: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 10px solid #39679f;
+}
+
+#form-style-1 label {
+  color: #39679f;
+  position: relative;
+  padding: 0;
+  background-color: #111418;
+  height: 25px;
+  margin-top: 25px;
+  margin-right: 8%;
+  float: right;
+}
+#form-style-1 label[id=home]
+{  
+  color: #fecbf9;
+  font-size: 30px;
+  height: auto;
+  margin-top: 5%;
+}
+#form-style-1 #scrollMenu
+{
+    width: 100%;
+    height: 280px;
+    overflow-y: visible;
+    overflow-y: scroll;
+}
+#scrollMenu label
+{
+    color: #fecbf9;
+    float: left;
+    margin-left: 5%;
+    border-bottom: 1px solid #fecbf9;
+}
+#scrollMenu label span
+{
+    cursor: pointer;
+}
+#form-style-1 label input {
+  border: 2px solid #39679f;
+  background-color: #111418;
+  padding: 0;
+  color: #fecbf9;
+  height: 25px;
+  margin-top: -3%;
+}
+
+#form-style-1 label input[type=submit] {
+  color: #fecbf9;
+  padding: 0;
+  height: 25px;
+  margin-left: 55px;
+  margin-top: -15px;
+  width: 60px;
+}
+
+#form-style-1 label select {
+  width: 150px;
+  padding: 0;
+  height: 25px;
+  margin-top: -3%;
+  color: #fecbf9;
+  border: 2px solid #39679f;
+  background-color: #111418;
+}
+
+#form-style-1 .close {
+  color: aliceblue;
+  border: 2px solid #39679f;
+  background-color: #111418;
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 35px;
+  height: 35px;
+}
+
+#content #form-style-1 header {
+
+  margin: 0;
+  margin-top: -3%;
+  padding: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #39679f;
+}
+
+#content #form-style-1 header h2 {
+  color: #fecbf9;
+  width: auto;
+  float: left;
+  margin-left: 8px;
+  font-size: 25px;
+}
+
+.dropbtn {
+
+    color: #fecbf9;
+    background: rgba(54, 25, 25, 0);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#dropdown {
+    position: relative;
+    display: inline-block;
+}
+#dropdown-content {
+    display: none;
     position: absolute;
-    visibility: hidden;
-    font-size: 15px;
-    top: 176px;
-    left: 28%;
-    width: 240px;
+    background-color: #fecbf9;
+    width: 250px;
+    height: 150px;
+    overflow-y: scroll;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-
-#menuLeft ul li
-{
-    color: aqua;
-    font-size: 5px;
-    margin-left: -15%;
-    width: 120%;
-    color: aliceblue;
-    float: right;
-    height: 60px;
-    background-color: #39679f;
-    border-right: 5px solid #fecbf9;
-    border-bottom: 5px solid #fecbf9;
+#dropdown-content a {
+    color: #111418;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
-#menuLeft ul li:hover
+#dropdown-content a:hover 
 {
-    color: aqua;
-    font-size: 5px;
-    margin-left: -15%;
-    width: 120%;
-    color: aliceblue;
-    float: right;
-    height: 60px;
-    background-color: #39679f;
-    border-right: 5px solid #fecbf9;
-    border-bottom: 5px solid #fecbf9;
+    background-color: #fdb4f6;
 }
-#menuLeft ul li:hover > span
-{
-    font-size: 25px;
-}
-span
-{
-    font-size: 10px;
-}
-#menuLeft ul li:hover > ul
-{
-
-    float: right;
-    height: auto;
-    margin-left: -100px;
-    opacity: 1;
-    visibility: visible;
-    background-color: dimgray;
-    top: 176px;
-    left: 28%;
-}
-
-#menuLeft ul li:hover
-{
-    margin-left: -15%;
-    margin-left: 20px;
-    width: 120%;
-    float: right;
-    color: #fecbf9;
-    font-weight: bold;
-    height: 60px;
-    background-color: #111418;
-    border-right: 5px solid #111418;
-    border-bottom: 5px solid #111418;
-}
-#menuLeft ul li a
-{
-    color: aliceblue;
-    font-size: 30px;
-    margin-left:  -3%;
-    margin-top:  5%;
-}
-#menuLeft ul li span
-{
-    font-size: 30px;
-    margin-left:  16%;
-    margin-top:  5%;
-}
-#content #form-style-1
-{
-    position: relative;
-    float: left;
-    padding: 0;
-    margin-top: -35%;
-    margin-left: 8%;
-    width: 350px;
-    height: auto;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 4px solid #39679f;
-}
-#form-style-1 label
-{
-    color: #39679f;
-    position: relative;
-    padding: 0;
-    background-color: #111418;
-    height: 25px;
-    margin-top: 25px;
-    margin-right: 8%;
-    float:right;
-}
-#form-style-1 label input
-{
-    padding: 0;
-    height: 25px;
-    margin-top: -3%;
-
-}
-#form-style-1 label input[type=submit]
-{
-    padding: 0;
-    height: 25px;
-    margin-left: 55px;
-    margin-top: -15px;
-    width: 60px;
-
-}
-#form-style-1 label select
-{
-    width: 150px;
-    padding: 0;
-    height: 25px;
-    margin-top: -3%;
-    color: antiquewhite;
-    background-color: #39679f;
-}
-#form-style-1 .close
-{
-    margin-top: 5px;
-    margin-left: 5px;
-    width: 35px;   
-    height: 35px;
-}
-#content #form-style-1 header
-{
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin: 0;
-    margin-top: -19px;
-    padding: 0;
-    float: left;
-    width: 100%;
-    height: 70px;
-    background-color: #39679f;
-}
-#content #form-style-1 header h2
-{
-    color: black;
-    width: auto;
-    float: left;
-    margin-left: 8px;
-    font-size: 35px;
+#dropdown:hover #dropdown-content {
+    display: block;
 }

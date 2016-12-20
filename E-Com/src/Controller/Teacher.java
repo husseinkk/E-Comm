@@ -26,7 +26,7 @@ public class Teacher extends User {
     /**
      * 
      */
-    private string dept;
+    public String dept;
 
 
 }

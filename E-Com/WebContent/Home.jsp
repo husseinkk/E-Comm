@@ -8,22 +8,35 @@
 <%@page import="Controller.User" %>
 <link rel="stylesheet" href="/E-Com/style.css">
     <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
 <script src="/E-Com/myScript.js"></script>
 
 </head>
     <body>
     <div id="wrapper">
-        <div id="banner"></div>
+        <div id="banner"><button href="#"></button></div>
         <div id="menuLeft">
             <ul>
                 <div id="avatar">
-                <%User user = (User)request.getAttribute("user"); 
-                	session.setAttribute("user", user);
-                %>
-                <label>Hello, <%out.print(user.name);%></label>
+                <%User user = (User)request.getAttribute("user");
+                	session.setAttribute("user", user);%>
+                <label>Hello, <%out.print(user.name); %>
+                    
+                                                <div id="dropdown">
+  <button class="dropbtn" ><span class="fa fa-bell"></span></button>
+  <div id="dropdown-content">
+    <a href="#">Notification 1 <span class="fa fa-close"></span></a>
+    <a href="#">Notification 2 <span class="fa fa-close"></span></a>
+    <a href="#">Notification 3 <span class="fa fa-close"></span></a>
+    <a href="#">Notification 4 <span class="fa fa-close"></span></a>
+    <a href="#">Notification 5 <span class="fa fa-close"></span></a>
+  </div>
+</div>
+                    </label>
+      
                 </div>
-                <li><span class="fa fa-home"> Dashboard</span></li>
+                <li onclick="home()"><span class="fa fa-home" id="button"> Dashboard</span></li>
                 <li><span class="fa fa-users"> Users</span>
                 <ul>
                     <li><a href="#" onclick="addUser()"><span class="fa fa-plus" id="button"> Add User</span></a></li>
@@ -31,23 +44,56 @@
                     <li><a href="#" onclick=""><span class="fa fa-pencil" id="button"> Edit User</span></a></li>
                     </ul>
                 </li>
-                <li><span class="fa fa-home"> Courses</span>
+                <li><span class="fa fa-file"> Courses</span>
                     <ul>
+                    <li><a href="#" onclick=""><span class="fa fa-eye" id="button"> View Courses</span></a></li>
                     <li><a href="#" onclick="addCourse()"><span class="fa fa-plus" id="button"> Add Course</span></a></li>
                     <li><a href="#" onclick="removeCourse()"><span class="fa fa-trash" id="button"> Remove Course</span></a></li>
-                    <li><a href="#" onclick=""><span class="fa fa-link" id="button"> Assign Course</span></a></li>
+                    <li><a href="#" onclick="assignCourse()"><span class="fa fa-link" id="button"> Assign Course</span></a></li>
+                    <li><a href="#" onclick=""><span class="fa fa-plus" id="button"> Register Course</span></a></li>
+                    <li><a href="#" onclick=""><span class="fa fa-trash" id="button"> Drop Course</span></a></li>
                     </ul>
                 </li>
-                <li><span class="fa fa-graduation-cap"> Grades</span></li>
-                <li><span class="fa fa-home"> Offers</span></li>
+                <li><span class="fa fa-graduation-cap"> Grades</span>
+                    <ul>
+                    <li><a href="#" onclick=""><span class="fa fa-eye" id="button"> View Grades</span></a></li>
+                    <li><a href="#" onclick="addGrade()"><span class="fa fa-plus" id="button"> Add Grade</span></a></li>
+                    <li><a href="#" onclick="editGrade()"><span class="fa fa-pencil" id="button"> Edit Grade</span></a></li>
+                    </ul>
+                </li>
+                <li><span class="fa fa-handshake-o"> Offers</span>
+                <ul>
+                    <li><a href="#" onclick="addOffer()"><span class="fa fa-plus" id="button"> Add Offer</span></a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
         <div id="content">
-        <div id="form-style-1">
-            <header><h2>GPA</h2></header>
+            <div id="form-style-1">
+            <header>
+                <h2>Progress</h2>
+                </header>
+                <label id="home">GPA : 2.68</label>
+                <label id="home">Hours : 18 Hours</label>
+                <label id="home">Courses : 8 Courses</label>
+            </div>
+            <div id="form-style-1">
+            <header>
+                <h2>Offers</h2>
+                </header>
+                <form id="scrollMenu">
+                    <label>Microsoft internship <span href="#"class="fa fa-external-link"></span></label>
+                    <label>MSSTC High Board Requirements <span href="#"class="fa fa-external-link"></span></label>
+                    <label>COMET High Board Requirements <span href="#"class="fa fa-external-link"></span></label>
+                    <label>Microsoft internship <span href="#"class="fa fa-external-link"></span></label>
+                    <label>MSSTC High Board Requirements <span href="#"class="fa fa-external-link"></span></label>
+                    <label>COMET High Board Requirements <span href="#"class="fa fa-external-link"></span></label>
+                    <label>Microsoft internship <span href="#"class="fa fa-external-link"></span></label>
+                    <label>MSSTC High Board Requirements <span href="#"class="fa fa-external-link"></span></label>
+                    <label>COMET High Board Requirements <span href="#"class="fa fa-external-link"></span></label>
+                </form>
             </div>
         </div>
-        <div id="footer"></div>
         </div>
     
     </body>
