@@ -60,7 +60,7 @@ public class UserManagement {
 	public boolean removeUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
-		if (u.checkUser(user)) {
+		if (u.isUser(user)) {
 			u.removeUser(user.username);
 			return true;
 		} else

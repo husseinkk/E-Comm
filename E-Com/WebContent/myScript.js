@@ -19,9 +19,9 @@ function addUser() {
   function removeUser() {
     document.getElementById("content").innerHTML = "";
     var longEntry =
-      '<form id=\"form-style-1" <style="height:30px;">\
+      '<form id=\"form-style-1" <style="height:30px;" action="removeUserServlet" method="post">\
                 <button href="#" class="close"> X </button>\
-                <label>Username <input type="text" placeholder="Username"/></label>\
+                <label>Username <input type="text" placeholder="Username" name="name"/></label>\
                 <label><input type="submit"/></label>\
                 </form>';
     document.getElementById("content").innerHTML = longEntry;

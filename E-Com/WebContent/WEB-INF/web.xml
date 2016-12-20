@@ -19,12 +19,19 @@
   <url-pattern>/SignInServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-      <description>AddUser</description>
   	<servlet-name>addUserServlet</servlet-name>
   	<servlet-class>Controller.addUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   <servlet-name>addUserServlet</servlet-name>
   <url-pattern>/addUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>removeUserServlet</servlet-name>
+  	<servlet-class>Controller.removeUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>removeUserServlet</servlet-name>
+  <url-pattern>/removeUserServlet</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -295,6 +295,7 @@ public class UserDBAccess {
 	public boolean removeUser(String username) {
 		// TODO implement here
 		Statement stmt = null;
+		System.out.println(username);
 		String Query = "delete from users where Username = \"" + username + "\"";
 
 		try {
