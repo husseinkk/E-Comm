@@ -28,24 +28,25 @@ public class addUserServlet extends javax.servlet.http.HttpServlet {
 		/* doGet(request, response); */
 		UserManagement u = new UserManagement();
 		User user = new User();
-		String name = request.getParameter("name");
-		String username = request.getParameter("un");
-		String usertype = request.getParameter("type");
-		String password = request.getParameter("pass");
+		String name = (String) request.getParameter("name");
+		String username = (String) request.getParameter("username");
+		String usertype = (String) request.getParameter("usertype");
+		String password = (String) request.getParameter("password");
 		user.name = name;
 		user.username = username;
 		user.usertype = usertype;
 		user.password = password;
-		
+		System.out.println(user.name + " " +user.username + " " + user.usertype);
 		int userID = u.addUser(user);
-		if(usertype.equals("student")){
+		System.out.println(userID);
+		if(usertype.equals("Student")){
 			Student st = new Student();
 			st.dept = request.getParameter("typeDept");
 			st.studID = request.getParameter("studID");
 			st.userID = userID;
 			u.addStudent(st);
 		}
-		if(usertype.equals("teacher")){
+		if(usertype.equals("Teacher")){
 			Teacher t = new Teacher();
 			t.dept = request.getParameter("typeDept");
 			t.userID = userID;
