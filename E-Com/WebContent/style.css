@@ -175,6 +175,12 @@ span {
   margin-right: 8%;
   float: right;
 }
+/* #form-style-1 label input[type=button]
+{
+	background-color : red;
+	width:50px;
+	height:50px;
+} */
 #form-style-1 label[id=home]
 {  
   color: #fecbf9;
@@ -206,10 +212,10 @@ span {
   padding: 0;
   color: #fecbf9;
   height: 25px;
-  margin-top: -3%;
+  margin-top: -80%;
 }
 
-#form-style-1 label input[type=submit] {
+#form-style-1 label input[type=button] {
   color: #fecbf9;
   padding: 0;
   height: 25px;

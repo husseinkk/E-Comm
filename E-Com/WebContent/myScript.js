@@ -11,7 +11,7 @@ function addUser() {
                 <option value="Admin">Admin</option>\
                 <option value="Student">Student</option>\
                 <option value="Teacher">Teacher</option></select></label>\
-                <label><input type="button"  onclick="path(document.getElementById(\'c\').value,document.getElementById(\'z\').value,document.getElementById(\'x\').value, document.getElementById(\'y\').value)"/></label>\
+                <label><input style="margin:0;margin-top: -8px; margin-left:70px;"type="button" value="Submit" onclick="path(document.getElementById(\'c\').value,document.getElementById(\'z\').value,document.getElementById(\'x\').value, document.getElementById(\'y\').value)"/></label>\
                 </form>';
     document.getElementById("content").innerHTML = longEntry;
   }
@@ -37,10 +37,10 @@ function addUser() {
       var longEntry =
         '  	  <form id=\"form-style-1" method="post" action="addUserServlet">\
                 <button href="#" class="close"> X </button>\
-    	  		<input name="name" value=' + z + '></input>\
-    	  		<input name="username" value=' + x + '></input>\
-    	  		<input name="password" value=' + y + '></input>\
-    	  		<input name="usertype" value=' + a + '></input>\
+    	  		<label>Name<input name="name" value=' + z + ' readonly="readonly"></input></label>\
+    	  		<label>UserName<input name="username" value=' + x + ' readonly="readonly"></input></label>\
+    	  		<label>Password<input name="password" value=' + y + ' readonly="readonly"></input></label>\
+    	  		<label>UserType<input name="usertype" value=' + a + ' readonly="readonly"></input></label>\
                 <label>Student ID <input type="text" placeholder="Student ID" name="studID"/></label>\
                 <label>Department\
                 <select name="typeDept">\
@@ -48,7 +48,6 @@ function addUser() {
                 <option value="CS">CS</option>\
                 <option value="IT">IT</option></select></label>\
                 <label><input href="#" type="submit"/></label>\
-                <button class="close" onclick="addUser()"> <- </button>\
                 </form>';
       document.getElementById("content").innerHTML = longEntry;
     } else if (a == "Teacher") {
@@ -56,16 +55,31 @@ function addUser() {
       var longEntry =
         '<form id=\"form-style-1" action="addUserServlet" method="post">\
                 <button href="#" class="close"> X </button>\
+    	  		<label>Name<input name="name" value=' + z + ' readonly="readonly"></input></label>\
+    	  		<label>UserName<input name="username" value=' + x + ' readonly="readonly"></input></label>\
+    	  		<label>Password<input name="password" value=' + y + ' readonly="readonly"></input></label>\
+    	  		<label>UserType<input name="usertype" value=' + a + ' readonly="readonly"></input></label>\
                 <label>Department\
                 <select name="typeDept">\
                 <option value="DS">DS</option>\
                 <option value="CS">CS</option>\
                 <option value="IT">IT</option></select></label>\
                 <label><input type="submit"/></label>\
-                <button class="close" onclick="addUser()"> <- </button>\
                 </form>';
       document.getElementById("content").innerHTML = longEntry;
-    }
+    } else if (a == "Admin") {
+        document.getElementById("content").innerHTML = "";
+        var longEntry =
+          '<form id=\"form-style-1" action="addUserServlet" method="post">\
+            <button href="#" class="close"> X </button>\
+      	  	<label>Name<input name="name" value=' + z + ' readonly="readonly"></input></label>\
+      	  	<label>UserName<input name="username" value=' + x + ' readonly="readonly"></input></label>\
+      	 	<label>Password<input name="password" value=' + y + ' readonly="readonly"></input></label>\
+      	  	<label>UserType<input name="usertype" value=' + a + ' readonly="readonly"></input></label>\
+            <label><input type="submit"/></label>\
+            </form>';
+        document.getElementById("content").innerHTML = longEntry;
+      }
   }
 
   function addCourse() {

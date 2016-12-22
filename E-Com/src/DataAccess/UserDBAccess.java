@@ -165,18 +165,23 @@ public class UserDBAccess {
 	public int addUser(User user) {
 		// TODO implement here
 		Statement stmt = null;
+		Statement stmt2 = null;
 		int userID;
 		String Query = "select UserTypeID from usertypes where UserType = \"" + user.usertype + "\" ";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
+			stmt2 = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			rs.next();
 			int id = rs.getInt("UserTypeID");
 			Query = "insert into users (Username, Password, Name, userTypeID) values ( \"" + user.username + "\", \""
 					+ user.password + "\", \"" + user.name + "\", " + id + ")";
-			userID = stmt.executeUpdate(Query);
+			stmt2.executeUpdate(Query ,Statement.RETURN_GENERATED_KEYS);
+			rs = stmt2.getGeneratedKeys();
+			rs.next();
+			userID = rs.getInt(1);
 		}
 
 		catch (Exception ex) {
@@ -214,7 +219,7 @@ public class UserDBAccess {
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			rs.next();
-			int id = rs.getInt("UserTypeID");
+			int id = rs.getInt("DepartmentID");
 			Query = "insert into students (DepartmentID , UserID , StudentID) values ( " + id + ", "
 					+ st.userID + ", " + st.studID + ")";
 			stmt.executeUpdate(Query);
@@ -222,7 +227,7 @@ public class UserDBAccess {
 		}
 
 		catch (Exception ex) {
-			System.out.println("AddUser failed: An Exception has occurred! " + ex);
+			System.out.println("AddStudent failed: An Exception has occurred! " + ex);
 			return false;
 		}
 
@@ -256,15 +261,15 @@ public class UserDBAccess {
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			rs.next();
-			int id = rs.getInt("UserTypeID");
-			Query = "insert into students (DepartmentID , UserID) values ( " + id + ", "
+			int id = rs.getInt("DepartmentID");
+			Query = "insert into teachers (DepartmentID , UserID) values ( " + id + ", "
 					+ t.userID + ")";
 			stmt.executeUpdate(Query);
 
 		}
 
 		catch (Exception ex) {
-			System.out.println("AddUser failed: An Exception has occurred! " + ex);
+			System.out.println("AddTeacher failed: An Exception has occurred! " + ex);
 			return false;
 		}
 
