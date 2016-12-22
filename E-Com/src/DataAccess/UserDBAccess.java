@@ -167,7 +167,7 @@ public class UserDBAccess {
 		Statement stmt = null;
 		Statement stmt2 = null;
 		int userID;
-		String Query = "select UserTypeID from Usertypes where UserType = \"" + user.usertype + "\" ";
+		String Query = "select UserTypeID from UserTypes where UserType = \"" + user.usertype + "\" ";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -176,7 +176,7 @@ public class UserDBAccess {
 			rs = stmt.executeQuery(Query);
 			rs.next();
 			int id = rs.getInt("UserTypeID");
-			Query = "insert into users (Username, Password, Name, userTypeID) values ( \"" + user.username + "\", \""
+			Query = "insert into Users (Username, Password, Name, UserTypeID) values ( \"" + user.username + "\", \""
 					+ user.password + "\", \"" + user.name + "\", " + id + ")";
 			stmt2.executeUpdate(Query ,Statement.RETURN_GENERATED_KEYS);
 			rs = stmt2.getGeneratedKeys();
@@ -220,7 +220,7 @@ public class UserDBAccess {
 			rs = stmt.executeQuery(Query);
 			rs.next();
 			int id = rs.getInt("DepartmentID");
-			Query = "insert into students (DepartmentID , UserID , StudentID) values ( " + id + ", "
+			Query = "insert into Students (DepartmentID , UserID , StudentID) values ( " + id + ", "
 					+ st.userID + ", " + st.studID + ")";
 			stmt.executeUpdate(Query);
 
@@ -262,7 +262,7 @@ public class UserDBAccess {
 			rs = stmt.executeQuery(Query);
 			rs.next();
 			int id = rs.getInt("DepartmentID");
-			Query = "insert into teachers (DepartmentID , UserID) values ( " + id + ", "
+			Query = "insert into Teachers (DepartmentID , UserID) values ( " + id + ", "
 					+ t.userID + ")";
 			stmt.executeUpdate(Query);
 
