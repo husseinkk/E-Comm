@@ -28,9 +28,10 @@ public class ConnectionManager {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			try {
-				serverPath = "jdbc:mysql://localhost:3306/e-comm?autoReconnect=true&useSSL=false";
-
-				con = DriverManager.getConnection(serverPath , "root" , "20146007");
+				
+				//serverPath = "jdbc:mysql://localhost:3306/e-comm?autoReconnect=true&useSSL=false";
+				serverPath ="jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7150539?user=sql7150539&password=WuDEBwQWRA";
+				con = DriverManager.getConnection(serverPath);
 			}
 
 			catch (SQLException ex) {
