@@ -167,7 +167,7 @@ public class UserDBAccess {
 		Statement stmt = null;
 		Statement stmt2 = null;
 		int userID;
-		String Query = "select UserTypeID from usertypes where UserType = \"" + user.usertype + "\" ";
+		String Query = "select UserTypeID from Usertypes where UserType = \"" + user.usertype + "\" ";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -212,7 +212,7 @@ public class UserDBAccess {
 	public boolean addStudent(Student st) {
 		// TODO implement here
 		Statement stmt = null;
-		String Query = "select DepartmentID from departments where DepartmentName = \"" + st.dept + "\" ";
+		String Query = "select DepartmentID from Departments where DepartmentName = \"" + st.dept + "\" ";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -254,7 +254,7 @@ public class UserDBAccess {
 	public boolean addTeacher(Teacher t) {
 		// TODO implement here
 		Statement stmt = null;
-		String Query = "select DepartmentID from departments where DepartmentName = \"" + t.dept + "\" ";
+		String Query = "select DepartmentID from Departments where DepartmentName = \"" + t.dept + "\" ";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -301,7 +301,7 @@ public class UserDBAccess {
 		// TODO implement here
 		Statement stmt = null;
 		System.out.println(username);
-		String Query = "delete from users where Username = \"" + username + "\"";
+		String Query = "delete from Users where Username = \"" + username + "\"";
 
 		try {
 			currentCon = ConnectionManager.getConnection();
