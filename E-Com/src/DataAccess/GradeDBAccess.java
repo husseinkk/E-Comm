@@ -3,9 +3,7 @@ package DataAccess;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.*;
-
-import Controller.Grade;
+import Controller.WorkYear;
 
 /**
  * 
@@ -30,7 +28,7 @@ public class GradeDBAccess {
      * @param studID 
      * @return
      */
-    public boolean addGrade(Grade grade, int studID) {
+    public boolean addGrade(WorkYear grade, int studID) {
         // TODO implement here
         return false;
     }
@@ -40,7 +38,7 @@ public class GradeDBAccess {
      * @param studID 
      * @return
      */
-    public boolean editGrade(Grade grade, int studID) {
+    public boolean editGrade(WorkYear grade, int studID) {
         // TODO implement here
         return false;
     }
@@ -50,12 +48,13 @@ public class GradeDBAccess {
      * @param courseID 
      * @return
      */
-    public Grade getGrade(int studID, int courseID) {
+    public static WorkYear[] getGrade(int studID, int courseID) {
         // TODO implement here
     	Statement stmt = null;
     	String Query = "select SCID from  Students join Semesters join SemestersCourses on"
 				+ "	Students.StudentID = Semesters.StudentID && Semesters.SemesterID = SemestersCourses.SemesterID"
     			+ " where Students.StudentID = " + studID  + "&& SemestersCourses.CourseID = " + courseID ;
+    	WorkYear[] Workyears = null;
 
 		try {
 			currentCon = ConnectionManager.getConnection();
@@ -66,8 +65,13 @@ public class GradeDBAccess {
 			Query = "select * from WorkYears join WorkTypes on WorkYears.WorkTypeID = WorkTypes.WorkTypeID "
 					+ "where WorkYears.SCID = " + SCID;
 			rs = stmt.executeQuery(Query);
+			rs.last();
+			Workyears = new WorkYear[rs.getRow()];
+			rs.beforeFirst();
+			int i = 0;
 			while (rs.next()) {
-				System.out.println(rs.getInt("Score") + " " + rs.getString("WorkType"));
+				Workyears[i++] = new WorkYear(rs.getDate("DueDate") , rs.getString("Description") 
+						, rs.getInt("Score"), rs.getString("WorkType"));
 			}
 			
 		}
@@ -94,7 +98,7 @@ public class GradeDBAccess {
 
 		}
 
-        return null;
+        return Workyears;
     }
 
     /**

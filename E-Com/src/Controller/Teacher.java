@@ -13,7 +13,13 @@ public class Teacher extends User {
     public Teacher() {
     }
 
-    /**
+    public Teacher(String name, int rate) {
+		// TODO Auto-generated constructor stub
+    	this.name = name;
+    	this.rate = rate;
+	}
+
+	/**
      * 
      */
     private Set<Course> courses;

@@ -31,18 +31,22 @@ public class WorkYear {
     /**
      * 
      */
-    public WorkType type;
+    public String type;
 
 
     /**
      * @param score 
      * @param dueDate 
      * @param description 
-     * @param type 
+     * @param string 
      * @return
      */
-    public void WorkYear(int score, Date dueDate, String description, WorkType type) {
+    public WorkYear(Date dueDate, String description, int score, String string) {
         // TODO implement here
+    	this.dueDate = dueDate;
+    	this.description = description;
+    	this.score = score;
+    	this.type = string;
     }
 
     /**

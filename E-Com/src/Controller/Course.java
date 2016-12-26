@@ -13,7 +13,17 @@ public class Course {
     public Course() {
     }
 
-    /**
+    public Course(String name, String description, int hour, String department, WorkYear[] grade, Teacher[] teachers) {
+		// TODO Auto-generated constructor stub
+    	this.courseName = name;
+    	this.courseDescription = description;
+    	this.Hour =hour;
+    	this.setDept(department);
+    	this.setGrade(grade);
+    	this.doctors = teachers;
+	}
+
+	/**
      * 
      */
     private int Hour;
@@ -21,77 +31,59 @@ public class Course {
     /**
      * 
      */
-    private string courseName;
+    private String courseName;
 
     /**
      * 
      */
-    private string courseDescription;
+    private String courseDescription;
 
     /**
      * 
      */
-    private Set<Course> prerequisites;
+    private Course[] prerequisites;
 
     /**
      * 
      */
-    private Set<Teacher> doctors;
+    private Teacher[] doctors;
 
     /**
      * 
      */
-    private Set<Teacher> assistants;
+    private Teacher[] assistants;
 
     /**
      * 
      */
-    private Set<Student> students;
+    private Student[] students;
 
     /**
      * 
      */
-    private int cID;
+    private WorkYear[] grade;
 
     /**
      * 
      */
-    private Grade grade;
-
-    /**
-     * 
-     */
-    private string dept;
-
-
-
-
-
+    private String dept;
 
 
 
     /**
      * @return
      */
-    public void Course() {
+    public String getCourseName() {
         // TODO implement here
-        return null;
+        return courseName;
     }
 
     /**
      * @return
      */
-    public string getCourseName() {
+    public String getCourseDescription() {
         // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    public string getCourseDescription() {
-        // TODO implement here
-        return null;
+    	return courseDescription;
     }
 
     /**
@@ -99,31 +91,51 @@ public class Course {
      */
     public int getHours() {
         // TODO implement here
-        return 0;
+        return Hour;
     }
 
     /**
      * @return
      */
-    public Set<Teacher> getDoctors() {
+    public Teacher[] getDoctors() {
         // TODO implement here
-        return null;
+        return doctors;
     }
 
     /**
      * @return
      */
-    public Set<Teacher> getAssistant() {
+    public Teacher[] getAssistant() {
         // TODO implement here
-        return null;
+        return assistants;
     }
 
     /**
      * @return
      */
-    public Set<Student> getStudents() {
+    public Student[] getStudents() {
         // TODO implement here
-        return null;
+        return students;
     }
+
+	public void setDoctors(Teacher[] doctors) {
+		this.doctors = doctors;
+	}
+
+	public WorkYear[] getGrade() {
+		return grade;
+	}
+
+	public void setGrade(WorkYear[] grade) {
+		this.grade = grade;
+	}
+
+	public String getDept() {
+		return dept;
+	}
+
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
 
 }
