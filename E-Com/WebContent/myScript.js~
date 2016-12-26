@@ -273,36 +273,3 @@ function course(c)
             
     }
 }
-
-function viewCoursesStudent()
-{
-    document.getElementById("content").innerHTML = "";
-    var longEntry = 
-    	'<form><div id="form-style-1"><div id="scrollMenu">\
-        <div id="block">\
-            <label>Algorithms</label>\
-            <div id="block-content">\
-            <p>CreditHours : 4</p>\
-            </div>\
-        </div>\
-            <div id="block">\
-            <label>Algorithms</label>\
-            <div id="block-content">\
-            <p>CreditHours4</p>\
-            </div>\
-        </div>\
-            <div id="block">\
-            <label>Algorithms</label>\
-            <div id="block-content">\
-            <p>CreditHours4</p>\
-            </div>\
-        </div>\
-            <div id="block">\
-            <label>Algorithms</label>\
-            <div id="block-content">\
-            <p>CreditHours4</p>\
-            </div>\
-        </div>\
-</div></form>';
-    document.getElementById("content").innerHTML = longEntry;
-}
