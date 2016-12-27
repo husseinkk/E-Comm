@@ -28,11 +28,8 @@ public class Course {
      * 
      */
     public int Hour;
-<<<<<<< HEAD
-    public int ind;
-=======
 
->>>>>>> origin/master
+    public int ind;
     /**
      * 
      */

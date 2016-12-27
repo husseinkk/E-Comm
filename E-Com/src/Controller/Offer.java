@@ -21,7 +21,7 @@ public class Offer {
     /**
      * 
      */
-    public string department;
+    public String department;
 
     /**
      * 

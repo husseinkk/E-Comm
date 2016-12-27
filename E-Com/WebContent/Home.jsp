@@ -21,11 +21,10 @@
 	href="http://fonts.googleapis.com/css?family=Tangerine">
 <script src="/E-Com/myScript.js"></script>
 <script type="text/javascript">
-function viewBox()
-{
-	var element = document.getElementById('box');
-	element.style.display="block";
-}
+	function viewBox() {
+		var element = document.getElementById('box');
+		element.style.display = "block";
+	}
 </script>
 </head>
 <body>
@@ -36,36 +35,38 @@ function viewBox()
 		<div id="menuLeft">
 			<ul>
 				<div id="avatar">
-<<<<<<< HEAD
-					<%User user = (User)request.getAttribute("user");
-                	session.setAttribute("user", user);%>
-					<%Course[] crs = CourseDBAccess.selectCourses(user.userID); %>
-					<label>Hello, <%out.print(user.name); %> <%if(user.usertype.equals("Student")){ %>
-=======
 					<%
 						User user = (User) request.getAttribute("user");
 						session.setAttribute("user", user);
 					%>
+					<%
+						Course[] crs = CourseDBAccess.selectCourses(user.userID);
+					%>
 					<label>Hello, <%
 						out.print(user.name);
-					%> <%
- 	if (user.usertype.equals("Student")) {
- %>
->>>>>>> origin/master
-						<div id="dropdown">
-							<button class="dropbtn">
-								<span class="fa fa-bell"></span>
-							</button>
+					%>
+					</label>
+					<%
+						if (user.usertype.equals("Student")) {
+					%>
+					<div id="dropdown">
+						<button class="dropbtn">
+							<span class="fa fa-bell"></span>
+						</button>
 
-							
-							<div id="dropdown-content">
-								<a href="#"><%out.print(crs.length); %> <span class="fa fa-close"></span></a>
-								<a href="#"><%out.print(user.userID); %> <span class="fa fa-close"></span></a>
-								<a href="#">Notification 3 <span class="fa fa-close"></span></a>
-								<a href="#">Notification 4 <span class="fa fa-close"></span></a>
-								<a href="#">Notification 5 <span class="fa fa-close"></span></a>
-							</div>
+
+						<div id="dropdown-content">
+							<a href="#"> <%
+ 	out.print(crs.length);
+ %> <span class="fa fa-close"></span>
+							</a> <a href="#"> <%
+ 	out.print(user.userID);
+ %> <span class="fa fa-close"></span>
+							</a> <a href="#">Notification 3 <span class="fa fa-close"></span></a>
+							<a href="#">Notification 4 <span class="fa fa-close"></span></a>
+							<a href="#">Notification 5 <span class="fa fa-close"></span></a>
 						</div>
+					</div>
 				</div>
 				<li onclick="home()"><span class="fa fa-home" id="button">
 						Dashboard</span></li>
@@ -77,14 +78,9 @@ function viewBox()
 								id="button"> Register Course</span></a></li>
 						<li><a href="#" onclick=""><span class="fa fa-trash"
 								id="button"> Drop Course</span></a></li>
-<<<<<<< HEAD
-						<li><a href="#" onclick="viewBox()"><span class="fa fa-eye"
-								id="button"> View Courses</span></a></li>
-=======
-						<li><a href="#"
-							onclick='viewCoursesStudent(<%CourseDBAccess.selectCourses(user.userID);%>)'><span
-								class="fa fa-trash" id="button"> View Courses</span></a></li>
->>>>>>> origin/master
+						<li><a href="#" onclick="viewBox()"><span
+								class="fa fa-eye" id="button"> View Courses</span></a></li>
+
 					</ul></li>
 				<li><span class="fa fa-graduation-cap"> Grades</span>
 					<ul>
@@ -99,18 +95,30 @@ function viewBox()
 			</li>
 		</div>
 		<div id="box">
-			<%for(int i = 0; i < crs.length; i++){ %>
-				<div id = "block">
-					<label><%out.print(crs[i].courseName); %></label>
-					<div id="block-content">
-					<p>Credit Hours: <% out.print(crs[i].Hour);%></p>
-					</div>
+			<%
+				for (int i = 0; i < crs.length; i++) {
+			%>
+			<div id="block">
+				<label> <%
+ 	out.print(crs[i].courseName);
+ %>
+				</label>
+				<div id="block-content">
+					<p>
+						Credit Hours:
+						<%
+						out.print(crs[i].Hour);
+					%>
+					</p>
 				</div>
-				<%} %>
-				
+			</div>
+			<%
+				}
+			%>
+
 		</div>
 		<div id="content">
-			
+
 			<div id="form-style-1">
 				<header>
 				<h2>Progress</h2>
@@ -169,17 +177,10 @@ function viewBox()
 
 	</div>
 
-<<<<<<< HEAD
-	<div id="content">
-			</div>
-
-	<%}else if(user.usertype.equals("Teacher")){ %>
-=======
 	<div id="content"></div>
 	<%
 		} else if (user.usertype.equals("Teacher")) {
 	%>
->>>>>>> origin/master
 
 
 	</div>
@@ -206,11 +207,10 @@ function viewBox()
 	</div>
 
 	<div id="content"></div>
+
 	<%
 		}
 	%>
-
 	</div>
-
 </body>
 </html>

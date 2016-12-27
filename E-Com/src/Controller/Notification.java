@@ -16,12 +16,12 @@ public class Notification {
     /**
      * 
      */
-    public string description;
+    public String description;
 
     /**
      * 
      */
-    public Time time;
+    public Date time;
 
 
 }

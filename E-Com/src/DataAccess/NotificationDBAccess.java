@@ -1,5 +1,8 @@
 package DataAccess;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.*;
 
 /**
@@ -16,7 +19,8 @@ public class NotificationDBAccess {
     /**
      * 
      */
-    public Connection connect;
+    static Connection currentCon = null;
+	static ResultSet rs = null;
 
 
     /**
@@ -24,9 +28,40 @@ public class NotificationDBAccess {
      * @param student 
      * @return
      */
-    public boolean addNotification(Notification notif, Student student) {
+    public boolean addNotification(String nDescr, int studentID) {
         // TODO implement here
-        return false;
+    	Statement stmt = null;
+		String Query = "insert into Notifications (Description, StudentID) values (\"" + nDescr + "\", " + studentID;
+
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			stmt.executeUpdate(Query);
+		}
+
+		catch (Exception ex) {
+			System.out.println("AddStudent failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+		return true;
     }
 
     /**

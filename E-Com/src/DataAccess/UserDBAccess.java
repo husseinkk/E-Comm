@@ -396,5 +396,48 @@ public class UserDBAccess {
 		// TODO implement here
 		return false;
 	}
+	
+	public Student[] selectStudents (float GPA , String Department) {
+		Statement stmt = null;
+		String Query = "select * from Students join Departments on Students.DepartmentID = Departments.DepartmentID"
+				+ " where Students.GPA = " + GPA + "&& Departments.DepartmentName = \"" + Department+ "\"";
+		Student[] students = null;
+
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			rs.last();
+			students = new Student[rs.getRow()];
+			rs.beforeFirst();
+			int i = 0 ;
+			while (rs.next()) {
+				students[i++] = new Student (rs.getInt("StudentID"));
+			}
+		}
+
+		catch (Exception ex) {
+			System.out.println("SelectStudents failed: An Exception has occurred! " + ex);
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+		return students;
+	}
 
 }

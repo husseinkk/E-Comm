@@ -13,7 +13,12 @@ public class Student extends User {
     public Student() {
     }
 
-    /**
+    public Student(int id) {
+		// TODO Auto-generated constructor stub
+    	this.studID = id;
+	}
+
+	/**
      * 
      */
     private Set<Semester> semesters;
@@ -31,7 +36,7 @@ public class Student extends User {
     /**
      * 
      */
-    public String studID;
+    public int studID;
 
     /**
      * 

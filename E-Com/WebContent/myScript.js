@@ -288,44 +288,6 @@ function course(c) {
 	}
 }
 
-<<<<<<< HEAD
-function viewCoursesStudent(x)
-{
-    document.getElementById("content").innerHTML = "";
-    alert(sv);
-    var longEntry = 
-    	'<form><div id="form-style-1"><div id="scrollMenu">\
-    	<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours : 4</p>\
-    	</div>\
-    	</div>\
-    	<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours4</p>\
-    	</div>\
-    	</div>\
-    	<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours4</p>\
-    	</div>\
-    	</div>\
-    	<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours4</p>\
-    	</div>\
-    	</div>\
-    	</div></form>'
-    for(var i = 0 ; i < x.length ; i++) {
-    	longEntry += '<div id="block">\
-            <label>' + x[i].name + '</label>\
-            <div id="block-content">\
-            <p>CreditHours : '+ x[i].hour +'</p>\
-=======
 function viewCoursesStudent(x) {
 	alert(x);
 	document.getElementById("content").innerHTML = "";
@@ -363,7 +325,6 @@ function viewCoursesStudent(x) {
             <div id="block-content">\
             <p>CreditHours : '
 				+ x[i].Hour + '</p>\
->>>>>>> origin/master
             </div>\
             </div>';
 	}
