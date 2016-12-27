@@ -24,7 +24,7 @@ public class deleteCourseServlet extends javax.servlet.http.HttpServlet {
 		Course course = new Course();
 		String un = request.getParameter("course");
 		course.courseName = un;
-		request.setAttribute("course", request.getSession().getAttribute("course"));
+		request.setAttribute("user", request.getSession().getAttribute("user"));
 		u.deleteCourse(course.courseName);
 		request.setAttribute("user", request.getSession().getAttribute("user"));
 		request.getRequestDispatcher("Home.jsp").forward(request, response);

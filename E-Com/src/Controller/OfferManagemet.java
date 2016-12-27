@@ -19,8 +19,10 @@ public class OfferManagemet {
 
     /**
      * @param offer
+     * @return 
      */
-    public void addOffer(Offer offer) {
+    public boolean addOffer(Offer offer) {
+		return false;
         // TODO implement here
     	UserDBAccess u = new UserDBAccess();
     	NotificationDBAccess n = new NotificationDBAccess();

@@ -16,6 +16,7 @@ public class Offer {
     /**
      * 
      */
+    public String offerName;
     public String description;
 
     /**

@@ -66,4 +66,12 @@
     <servlet-name>SignOutServlet</servlet-name>
     <url-pattern>/SignOutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>addOfferServlet</servlet-name>
+    <servlet-class>Controller.addOfferServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addOfferServlet</servlet-name>
+    <url-pattern>/addOfferServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
