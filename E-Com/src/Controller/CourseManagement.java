@@ -38,7 +38,7 @@ public class CourseManagement {
      * @param int 
      * @return
      */
-    public boolean assignCourse(int courseID, void teacherID, void int) {
+    public boolean assignCourse(int courseID, int teacherID) {
         // TODO implement here
         return false;
     }

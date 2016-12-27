@@ -7,6 +7,7 @@
 	content="text/html; charset=windows-1256">
 <title>Welcome Home</title>
 <%@page import="Controller.User"%>
+<%@page import="DataAccess.CourseDBAccess"%>
 <link rel="stylesheet" href="/E-Com/style.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,6 +50,8 @@
 								id="button"> Register Course</span></a></li>
 						<li><a href="#" onclick=""><span class="fa fa-trash"
 								id="button"> Drop Course</span></a></li>
+						<li><a href="#" onclick='viewCoursesStudent(<% CourseDBAccess.selectCourses(user.userID); %>)'><span class="fa fa-trash"
+								id="button"> View Courses</span></a></li>
 					</ul></li>
 				<li><span class="fa fa-graduation-cap"> Grades</span>
 					<ul>

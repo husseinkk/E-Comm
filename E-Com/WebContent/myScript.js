@@ -274,35 +274,47 @@ function course(c)
     }
 }
 
-function viewCoursesStudent()
+function viewCoursesStudent(x)
 {
+	alert(x);
     document.getElementById("content").innerHTML = "";
     var longEntry = 
-    	'<form><div id="form-style-1"><div id="scrollMenu">\
-        <div id="block">\
-            <label>Algorithms</label>\
+    	'<form><div id="form-style-1"><div id="scrollMenu">';
+    	/*<div id="block">\
+    	<label>Algorithms</label>\
+    	<div id="block-content">\
+    	<p>CreditHours : 4</p>\
+    	</div>\
+    	</div>\
+    	<div id="block">\
+    	<label>Algorithms</label>\
+    	<div id="block-content">\
+    	<p>CreditHours4</p>\
+    	</div>\
+    	</div>\
+    	<div id="block">\
+    	<label>Algorithms</label>\
+    	<div id="block-content">\
+    	<p>CreditHours4</p>\
+    	</div>\
+    	</div>\
+    	<div id="block">\
+    	<label>Algorithms</label>\
+    	<div id="block-content">\
+    	<p>CreditHours4</p>\
+    	</div>\
+    	</div>\
+    	</div></form>'*/
+    for(var i = 0 ; i < x.length ; i++) {
+    	longEntry += '<div id="block">\
+            <label>' + x[i].courseName + '</label>\
             <div id="block-content">\
-            <p>CreditHours : 4</p>\
+            <p>CreditHours : '+ x[i].Hour +'</p>\
             </div>\
-        </div>\
-            <div id="block">\
-            <label>Algorithms</label>\
-            <div id="block-content">\
-            <p>CreditHours4</p>\
-            </div>\
-        </div>\
-            <div id="block">\
-            <label>Algorithms</label>\
-            <div id="block-content">\
-            <p>CreditHours4</p>\
-            </div>\
-        </div>\
-            <div id="block">\
-            <label>Algorithms</label>\
-            <div id="block-content">\
-            <p>CreditHours4</p>\
-            </div>\
-        </div>\
-</div></form>';
+            </div>';
+    }
+    
+    longEntry += '</div></form>';
+    
     document.getElementById("content").innerHTML = longEntry;
 }

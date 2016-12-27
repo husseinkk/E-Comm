@@ -11,35 +11,35 @@
     <welcome-file>Sign_in.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>SignInServlet</servlet-name>
-  	<servlet-class>Controller.Sign_InServlet</servlet-class>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class>Controller.Sign_InServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>SignInServlet</servlet-name>
-  <url-pattern>/SignInServlet</url-pattern>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern>/SignInServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>addUserServlet</servlet-name>
-  	<servlet-class>Controller.addUserServlet</servlet-class>
+    <servlet-name>addUserServlet</servlet-name>
+    <servlet-class>Controller.addUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>addUserServlet</servlet-name>
-  <url-pattern>/addUserServlet</url-pattern>
+    <servlet-name>addUserServlet</servlet-name>
+    <url-pattern>/addUserServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>removeUserServlet</servlet-name>
-  	<servlet-class>Controller.removeUserServlet</servlet-class>
+    <servlet-name>removeUserServlet</servlet-name>
+    <servlet-class>Controller.removeUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>removeUserServlet</servlet-name>
-  <url-pattern>/removeUserServlet</url-pattern>
+    <servlet-name>removeUserServlet</servlet-name>
+    <url-pattern>/removeUserServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>SignOutServlet</servlet-name>
-  	<servlet-class>Controller.Sign_outServlet</servlet-class>
+    <servlet-name>SignOutServlet</servlet-name>
+    <servlet-class>Controller.Sign_outServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>SignOutServlet</servlet-name>
-  <url-pattern>/SignOutServlet</url-pattern>
+    <servlet-name>SignOutServlet</servlet-name>
+    <url-pattern>/SignOutServlet</url-pattern>
   </servlet-mapping>
 </web-app>

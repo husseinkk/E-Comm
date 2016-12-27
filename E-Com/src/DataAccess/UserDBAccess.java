@@ -310,7 +310,7 @@ public class UserDBAccess {
 		}
 
 		catch (Exception ex) {
-			System.out.println("AddUser failed: An Exception has occurred! " + ex);
+			System.out.println("RemoveUser failed: An Exception has occurred! " + ex);
 			return false;
 		}
 
