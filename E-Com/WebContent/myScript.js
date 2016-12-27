@@ -1,7 +1,6 @@
 function addUser() {
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-      '<form id=\"form-style-1\" action="addUserServlet" method="post">\
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\" action="addUserServlet" method="post">\
                 <button href="Home.jsp" class="close"> X </button>\
                 <label>Name <input type="text" id="z"placeholder="Name" name="name"/></label>\
                 <label>Username <input type="text" id ="x"placeholder="Username" name="un"/></label>\
@@ -13,34 +12,40 @@ function addUser() {
                 <option value="Teacher">Teacher</option></select></label>\
                 <label><input style="margin:0;margin-top: -8px; margin-left:70px;"type="button" value="Submit" onclick="path(document.getElementById(\'c\').value,document.getElementById(\'z\').value,document.getElementById(\'x\').value, document.getElementById(\'y\').value)"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-  }
+	document.getElementById("content").innerHTML = longEntry;
+}
 
-  function removeUser() {
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-      '<form id=\"form-style-1" <style="height:30px;" action="removeUserServlet" method="post">\
+function removeUser() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1" <style="height:30px;" action="removeUserServlet" method="post">\
                 <button href="#" class="close"> X </button>\
                 <label>Username <input type="text" placeholder="Username" name="name"/></label>\
                 <label><input type="submit"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-  }
+	document.getElementById("content").innerHTML = longEntry;
+}
 
-  function path(a,z,x,y) {
-    a.toString();
-    z.toString();
-    x.toString();
-    y.toString();
-    if (a == "Student") {
-      document.getElementById("content").innerHTML = "";
-      var longEntry =
-        '  	  <form id=\"form-style-1" method="post" action="addUserServlet">\
+function path(a, z, x, y) {
+	a.toString();
+	z.toString();
+	x.toString();
+	y.toString();
+	if (a == "Student") {
+		document.getElementById("content").innerHTML = "";
+		var longEntry = '  	  <form id=\"form-style-1" method="post" action="addUserServlet">\
                 <button href="#" class="close"> X </button>\
-    	  		<label>Name<input name="name" value=' + z + ' readonly="readonly"></input></label>\
-    	  		<label>UserName<input name="username" value=' + x + ' readonly="readonly"></input></label>\
-    	  		<label>Password<input name="password" value=' + y + ' readonly="readonly"></input></label>\
-    	  		<label>UserType<input name="usertype" value=' + a + ' readonly="readonly"></input></label>\
+    	  		<label>Name<input name="name" value='
+				+ z
+				+ ' readonly="readonly"></input></label>\
+    	  		<label>UserName<input name="username" value='
+				+ x
+				+ ' readonly="readonly"></input></label>\
+    	  		<label>Password<input name="password" value='
+				+ y
+				+ ' readonly="readonly"></input></label>\
+    	  		<label>UserType<input name="usertype" value='
+				+ a
+				+ ' readonly="readonly"></input></label>\
                 <label>Student ID <input type="text" placeholder="Student ID" name="studID"/></label>\
                 <label>Department\
                 <select name="typeDept">\
@@ -49,16 +54,23 @@ function addUser() {
                 <option value="IT">IT</option></select></label>\
                 <label><input href="#" type="submit"/></label>\
                 </form>';
-      document.getElementById("content").innerHTML = longEntry;
-    } else if (a == "Teacher") {
-      document.getElementById("content").innerHTML = "";
-      var longEntry =
-        '<form id=\"form-style-1" action="addUserServlet" method="post">\
+		document.getElementById("content").innerHTML = longEntry;
+	} else if (a == "Teacher") {
+		document.getElementById("content").innerHTML = "";
+		var longEntry = '<form id=\"form-style-1" action="addUserServlet" method="post">\
                 <button href="#" class="close"> X </button>\
-    	  		<label>Name<input name="name" value=' + z + ' readonly="readonly"></input></label>\
-    	  		<label>UserName<input name="username" value=' + x + ' readonly="readonly"></input></label>\
-    	  		<label>Password<input name="password" value=' + y + ' readonly="readonly"></input></label>\
-    	  		<label>UserType<input name="usertype" value=' + a + ' readonly="readonly"></input></label>\
+    	  		<label>Name<input name="name" value='
+				+ z
+				+ ' readonly="readonly"></input></label>\
+    	  		<label>UserName<input name="username" value='
+				+ x
+				+ ' readonly="readonly"></input></label>\
+    	  		<label>Password<input name="password" value='
+				+ y
+				+ ' readonly="readonly"></input></label>\
+    	  		<label>UserType<input name="usertype" value='
+				+ a
+				+ ' readonly="readonly"></input></label>\
                 <label>Department\
                 <select name="typeDept">\
                 <option value="DS">DS</option>\
@@ -66,26 +78,32 @@ function addUser() {
                 <option value="IT">IT</option></select></label>\
                 <label><input type="submit"/></label>\
                 </form>';
-      document.getElementById("content").innerHTML = longEntry;
-    } else if (a == "Admin") {
-        document.getElementById("content").innerHTML = "";
-        var longEntry =
-          '<form id=\"form-style-1" action="addUserServlet" method="post">\
+		document.getElementById("content").innerHTML = longEntry;
+	} else if (a == "Admin") {
+		document.getElementById("content").innerHTML = "";
+		var longEntry = '<form id=\"form-style-1" action="addUserServlet" method="post">\
             <button href="#" class="close"> X </button>\
-      	  	<label>Name<input name="name" value=' + z + ' readonly="readonly"></input></label>\
-      	  	<label>UserName<input name="username" value=' + x + ' readonly="readonly"></input></label>\
-      	 	<label>Password<input name="password" value=' + y + ' readonly="readonly"></input></label>\
-      	  	<label>UserType<input name="usertype" value=' + a + ' readonly="readonly"></input></label>\
+      	  	<label>Name<input name="name" value='
+				+ z
+				+ ' readonly="readonly"></input></label>\
+      	  	<label>UserName<input name="username" value='
+				+ x
+				+ ' readonly="readonly"></input></label>\
+      	 	<label>Password<input name="password" value='
+				+ y
+				+ ' readonly="readonly"></input></label>\
+      	  	<label>UserType<input name="usertype" value='
+				+ a
+				+ ' readonly="readonly"></input></label>\
             <label><input type="submit"/></label>\
             </form>';
-        document.getElementById("content").innerHTML = longEntry;
-      }
-  }
+		document.getElementById("content").innerHTML = longEntry;
+	}
+}
 
-  function addCourse() {
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-      '<form id=\"form-style-1\" action="addCourseServlet" method="post">\
+function addCourse() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\" action="addCourseServlet" method="post">\
                 <button href="#" class="close"> X </button>\
                 <label>Course Name <input type="text" placeholder="Name" name="Cname" /></label>\
                 <label>Credit Hours<input type="text" placeholder="Hours" name="Chours"/></label>\
@@ -98,13 +116,19 @@ function addUser() {
                 <label>Description <textarea style="resize:none;" name="Cdesc"></textarea></label>\
                 <label><input type="submit" value="Add course" /></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-  }
+	document.getElementById("content").innerHTML = longEntry;
+}
+function signout() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\" action="SignOutServlet" method="post">\
+	    	<label>Are you sure to sign out?<input type="submit" value="Yes" /><input type="submit" onClick = "home()" value="No" /></label>\
+	    	</form>';
+	document.getElementById("content").innerHTML = longEntry;
+}
 
-  function removeCourse() {
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-      '<form id=\"form-style-1\" action="deleteCourseServlet" method="post">\
+function removeCourse() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\" action="deleteCourseServlet" method="post">\
                 <button href="#" class="close"> X </button>\
                 <label>Course\
                 <select name="course">\
@@ -113,12 +137,11 @@ function addUser() {
                 <option value="Concept Of PLs">Concepts</option></select></label>\
                 <label><input type="submit"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-  }
- function addOffer() {
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-      '<form id=\"form-style-1\">\
+	document.getElementById("content").innerHTML = longEntry;
+}
+function addOffer() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\">\
                 <button href="index.html" class="close"> X </button>\
                 <label>Offer Name <input type="text" placeholder="Name"/></label>\
                 <label>GPA <input type="text" placeholder="GPA"/></label>\
@@ -130,12 +153,11 @@ function addUser() {
                 <label>Description <textarea style="resize:none;"></textarea></label>\
                 <label><input type="submit"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-  }
- function addGrade() {
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-      '<form id=\"form-style-1\">\
+	document.getElementById("content").innerHTML = longEntry;
+}
+function addGrade() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\">\
                 <button href="index.html" class="close"> X </button>\
                 <label>Student ID <input type="text" placeholder="Student ID"/></label>\
                 <label>Course ID <input type="text" placeholder="Course ID"/></label>\
@@ -149,12 +171,11 @@ function addUser() {
                 <label>Value <input type="text" placeholder="Value"/></label>\
                 <label><input type="submit"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-  }
+	document.getElementById("content").innerHTML = longEntry;
+}
 function editGrade() {
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-      '<form id=\"form-style-1\">\
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\">\
                 <button href="index.html" class="close"> X </button>\
                 <label>Student ID <input type="text" placeholder="Student ID"/></label>\
                 <label>Course ID <input type="text" placeholder="Course ID"/></label>\
@@ -168,12 +189,11 @@ function editGrade() {
                 <label>New Value <input type="text" placeholder="Value"/></label>\
                 <label><input type="submit"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-  }
-function home()
-{
-    document.getElementById("content").innerHTML = "";
-    var longEntry ='<div id="form-style-1">\
+	document.getElementById("content").innerHTML = longEntry;
+}
+function home() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<div id="form-style-1">\
             <header>\
                 <h2>Progress</h2>\
                 <label id="home">GPA : 2.68</label>\
@@ -197,13 +217,11 @@ function home()
                     <label>COMET High Board Requirements <span href="#"class="fa fa-external-link"></span></label>\
                 </form>\
             </div>';
-    document.getElementById("content").innerHTML = longEntry;
+	document.getElementById("content").innerHTML = longEntry;
 }
-function assignCourse()
-{
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-        '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
+function assignCourse() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
                 <label>Course\
                 <select name="Cname" id="x">\
@@ -214,15 +232,15 @@ function assignCourse()
                 <option value="pl1">PL1</option></select></label>\
                 <label><input href="#" type="submit" onclick="doctor(document.getElementById(\'x\').value)"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
+	document.getElementById("content").innerHTML = longEntry;
 }
-function doctor(x)
-{
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-        '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
+function doctor(x) {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
-    			<label>Course Name<input name="Cname" value=' + x + ' readonly="readonly"></input></label>\
+    			<label>Course Name<input name="Cname" value='
+			+ x
+			+ ' readonly="readonly"></input></label>\
                 <label>Doctor\
                 <select name="Tname">\
                 <option value="Teacher">Teacher</option>\
@@ -232,14 +250,12 @@ function doctor(x)
                 <option value="126">Abdallah Ahmed</option></select></label>\
                 <label><input type="submit"/></label>\
                 </form>';
-    document.getElementById("content").innerHTML = longEntry;
-    
+	document.getElementById("content").innerHTML = longEntry;
+
 }
-function viewGrades()
-{
-    document.getElementById("content").innerHTML = "";
-    var longEntry =
-        '<form id=\"form-style-1\">\
+function viewGrades() {
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\">\
         <button href="index.html" class="close"> X </button>\
         <label>Course\
         <select name="type" id="c">\
@@ -249,18 +265,15 @@ function viewGrades()
         <option value="networks-1">Networks-1</option></select></label>\
         <label><input href="#" onclick="course(document.getElementById(\'c\').value" type="submit"/></label>\
         </form>';
-    document.getElementById("content").innerHTML = longEntry;
+	document.getElementById("content").innerHTML = longEntry;
 }
-function course(c)
-{
-    document.getElementById("content").innerHTML = "";
-    var longEntry;
-    c.toString();
-    switch(c)
-    {
-        case "algorithms":
-            var longEntry =
-        '<form id=\"form-style-1\">\
+function course(c) {
+	document.getElementById("content").innerHTML = "";
+	var longEntry;
+	c.toString();
+	switch (c) {
+	case "algorithms":
+		var longEntry = '<form id=\"form-style-1\">\
         <button href="index.html" class="close"> X </button>\
         <label>Course\
         <select name="type" id=""c>\
@@ -270,52 +283,53 @@ function course(c)
         <option value="networks-1">Networks-1</option></select></label>\
         <label><input href="#" onclick="course(document.getElementById(\'c\').value" type="submit"/></label>\
         </form>';
-            break;
-            
-    }
+		break;
+
+	}
 }
 
-function viewCoursesStudent(x)
-{
+function viewCoursesStudent(x) {
 	alert(x);
-    document.getElementById("content").innerHTML = "";
-    var longEntry = 
-    	'<form><div id="form-style-1"><div id="scrollMenu">';
-    	/*<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours : 4</p>\
-    	</div>\
-    	</div>\
-    	<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours4</p>\
-    	</div>\
-    	</div>\
-    	<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours4</p>\
-    	</div>\
-    	</div>\
-    	<div id="block">\
-    	<label>Algorithms</label>\
-    	<div id="block-content">\
-    	<p>CreditHours4</p>\
-    	</div>\
-    	</div>\
-    	</div></form>'*/
-    for(var i = 0 ; i < x.length ; i++) {
-    	longEntry += '<div id="block">\
-            <label>' + x[i].courseName + '</label>\
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form><div id="form-style-1"><div id="scrollMenu">';
+	/*<div id="block">\
+	<label>Algorithms</label>\
+	<div id="block-content">\
+	<p>CreditHours : 4</p>\
+	</div>\
+	</div>\
+	<div id="block">\
+	<label>Algorithms</label>\
+	<div id="block-content">\
+	<p>CreditHours4</p>\
+	</div>\
+	</div>\
+	<div id="block">\
+	<label>Algorithms</label>\
+	<div id="block-content">\
+	<p>CreditHours4</p>\
+	</div>\
+	</div>\
+	<div id="block">\
+	<label>Algorithms</label>\
+	<div id="block-content">\
+	<p>CreditHours4</p>\
+	</div>\
+	</div>\
+	</div></form>'*/
+	for (var i = 0; i < x.length; i++) {
+		longEntry += '<div id="block">\
+            <label>'
+				+ x[i].courseName
+				+ '</label>\
             <div id="block-content">\
-            <p>CreditHours : '+ x[i].Hour +'</p>\
+            <p>CreditHours : '
+				+ x[i].Hour + '</p>\
             </div>\
             </div>';
-    }
-    
-    longEntry += '</div></form>';
-    
-    document.getElementById("content").innerHTML = longEntry;
+	}
+
+	longEntry += '</div></form>';
+
+	document.getElementById("content").innerHTML = longEntry;
 }
