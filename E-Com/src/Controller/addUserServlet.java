@@ -41,8 +41,9 @@ public class addUserServlet extends javax.servlet.http.HttpServlet {
 		System.out.println(userID);
 		if(usertype.equals("Student")){
 			Student st = new Student();
+			String id = request.getParameter("studID");
 			st.dept = request.getParameter("typeDept");
-			st.studID = request.getParameter("studID");
+			st.studID = Integer.parseInt(id);
 			st.userID = userID;
 			u.addStudent(st);
 		}
