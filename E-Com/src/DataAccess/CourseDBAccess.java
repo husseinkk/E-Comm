@@ -35,16 +35,16 @@ public class CourseDBAccess {
 		// TODO implement here
 		Statement stmt = null;
 		
-		String Query = "select * from Departments where DepartmentName = " + course.getDept();
+		String Query = "select * from Departments where DepartmentName = \"" + course.getDept() + "\"";
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			rs.next();
 			int dept = rs.getInt("DepartmentID");
-			Query ="insert into Courses (CourseName, Description, Hours, Department) values (\"" 
+			Query ="insert into Courses (CourseName, Description, Hours, DepartmentID) values (\"" 
 					+ course.getCourseName() + "\" , \"" + course.getCourseDescription() + "\", " 
-					+ course.getHours() + ", " + dept;
+					+ course.getHours() + ", " + dept + ")";
 			stmt.executeUpdate(Query);
 			}
 

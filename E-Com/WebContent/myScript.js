@@ -90,12 +90,13 @@ function addUser() {
                 <label>Course Name <input type="text" placeholder="Name" name="Cname" /></label>\
                 <label>Credit Hours<input type="text" placeholder="Hours" name="Chours"/></label>\
                 <label>Department\
-                <select name="Cdesc">\
+                <select name="Cdept">\
                 <option value="CS">CS</option>\
                 <option value="IT">IT</option>\
-                <option value="DS">IT</option></select></label>\
-                <label>Description <textarea style="resize:none;" name="Cdept"></textarea></label>\
-                <label><input type="submit"/></label>\
+    			<option value="IS">IS</option>\
+                <option value="DS">DS</option></select></label>\
+                <label>Description <textarea style="resize:none;" name="Cdesc"></textarea></label>\
+                <label><input type="submit" value="Add course" /></label>\
                 </form>';
     document.getElementById("content").innerHTML = longEntry;
   }

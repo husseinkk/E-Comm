@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 
  */
-public class addCourseServlet {
+public class addCourseServlet extends javax.servlet.http.HttpServlet{
 	private static final long serialVersionUID = 4L;
 	
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +31,7 @@ public class addCourseServlet {
 		c.courseDescription = cdesc;
 		c.Hour = Integer.parseInt(chours);
 		c.dept = cdept;
-		System.out.println(cdesc + " " + cname);
+		System.out.println(cdesc + " " + cname + " " );
 		if(course.addCourse(c)){
 			request.setAttribute("user", request.getSession().getAttribute("user"));
 			request.getRequestDispatcher("Home.jsp").forward(request, response);
