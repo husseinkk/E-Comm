@@ -276,11 +276,11 @@ function course(c)
 
 function viewCoursesStudent(x)
 {
-	alert(x);
     document.getElementById("content").innerHTML = "";
+    alert(sv);
     var longEntry = 
-    	'<form><div id="form-style-1"><div id="scrollMenu">';
-    	/*<div id="block">\
+    	'<form><div id="form-style-1"><div id="scrollMenu">\
+    	<div id="block">\
     	<label>Algorithms</label>\
     	<div id="block-content">\
     	<p>CreditHours : 4</p>\
@@ -304,12 +304,12 @@ function viewCoursesStudent(x)
     	<p>CreditHours4</p>\
     	</div>\
     	</div>\
-    	</div></form>'*/
+    	</div></form>'
     for(var i = 0 ; i < x.length ; i++) {
     	longEntry += '<div id="block">\
-            <label>' + x[i].courseName + '</label>\
+            <label>' + x[i].name + '</label>\
             <div id="block-content">\
-            <p>CreditHours : '+ x[i].Hour +'</p>\
+            <p>CreditHours : '+ x[i].hour +'</p>\
             </div>\
             </div>';
     }

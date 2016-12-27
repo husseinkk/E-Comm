@@ -35,6 +35,20 @@ html
   z-index: -20;
 }
 
+#box {
+  display : none;
+  margin: 0;
+  float : right;
+  padding: 0;
+  margin-top: -580px;
+  margin-left: 22.5%;
+  width: 75%;
+  height: 550px;
+  z-index : 999;
+  color : white;
+  background-color: #111418;
+}
+
 #content {
   margin: 0;
   padding: 0;

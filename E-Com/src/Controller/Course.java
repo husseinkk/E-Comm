@@ -6,15 +6,16 @@ import java.util.*;
  * 
  */
 public class Course {
-
+	
     /**
      * Default constructor
      */
     public Course() {
     }
 
-    public Course(String name, String description, int hour, String department, WorkYear[] grade, Teacher[] teachers) {
+    public Course(int id, String name, String description, int hour, String department, WorkYear[] grade, Teacher[] teachers) {
 		// TODO Auto-generated constructor stub
+    	this.ind = id;
     	this.courseName = name;
     	this.courseDescription = description;
     	this.Hour =hour;
@@ -26,17 +27,17 @@ public class Course {
 	/**
      * 
      */
-    private int Hour;
+    public int Hour;
+    public int ind;
+    /**
+     * 
+     */
+    public String courseName;
 
     /**
      * 
      */
-    private String courseName;
-
-    /**
-     * 
-     */
-    private String courseDescription;
+    public String courseDescription;
 
     /**
      * 

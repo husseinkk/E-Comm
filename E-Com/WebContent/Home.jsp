@@ -1,3 +1,8 @@
+<%@page import="jdk.nashorn.internal.parser.JSONParser"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="javafx.scene.web.WebView"%>
+<%@page import="org.json.simple.JSONObject"%>
+<%@page import="org.json.simple.JSONArray"%>
 <%@ page language="java" contentType="text/html; charset=windows-1256"
 	pageEncoding="windows-1256"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,6 +12,7 @@
 	content="text/html; charset=windows-1256">
 <title>Welcome Home</title>
 <%@page import="Controller.User"%>
+<%@page import="Controller.Course"%>
 <%@page import="DataAccess.CourseDBAccess"%>
 <link rel="stylesheet" href="/E-Com/style.css">
 <link rel="stylesheet"
@@ -14,7 +20,13 @@
 <link rel="stylesheet" type="text/css"
 	href="http://fonts.googleapis.com/css?family=Tangerine">
 <script src="/E-Com/myScript.js"></script>
-
+<script type="text/javascript">
+function viewBox()
+{
+	var element = document.getElementById('box');
+	element.style.display="block";
+}
+</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -26,14 +38,17 @@
 				<div id="avatar">
 					<%User user = (User)request.getAttribute("user");
                 	session.setAttribute("user", user);%>
+					<%Course[] crs = CourseDBAccess.selectCourses(user.userID); %>
 					<label>Hello, <%out.print(user.name); %> <%if(user.usertype.equals("Student")){ %>
 						<div id="dropdown">
 							<button class="dropbtn">
 								<span class="fa fa-bell"></span>
 							</button>
+
+							
 							<div id="dropdown-content">
-								<a href="#">Notification 1 <span class="fa fa-close"></span></a>
-								<a href="#">Notification 2 <span class="fa fa-close"></span></a>
+								<a href="#"><%out.print(crs.length); %> <span class="fa fa-close"></span></a>
+								<a href="#"><%out.print(user.userID); %> <span class="fa fa-close"></span></a>
 								<a href="#">Notification 3 <span class="fa fa-close"></span></a>
 								<a href="#">Notification 4 <span class="fa fa-close"></span></a>
 								<a href="#">Notification 5 <span class="fa fa-close"></span></a>
@@ -50,7 +65,7 @@
 								id="button"> Register Course</span></a></li>
 						<li><a href="#" onclick=""><span class="fa fa-trash"
 								id="button"> Drop Course</span></a></li>
-						<li><a href="#" onclick='viewCoursesStudent(<% CourseDBAccess.selectCourses(user.userID); %>)'><span class="fa fa-trash"
+						<li><a href="#" onclick="viewBox()"><span class="fa fa-eye"
 								id="button"> View Courses</span></a></li>
 					</ul></li>
 				<li><span class="fa fa-graduation-cap"> Grades</span>
@@ -63,8 +78,19 @@
 			</ul>
 
 		</div>
-
+		<div id="box">
+			<%for(int i = 0; i < crs.length; i++){ %>
+				<div id = "block">
+					<label><%out.print(crs[i].courseName); %></label>
+					<div id="block-content">
+					<p>Credit Hours: <% out.print(crs[i].Hour);%></p>
+					</div>
+				</div>
+				<%} %>
+				
+		</div>
 		<div id="content">
+			
 			<div id="form-style-1">
 				<header>
 				<h2>Progress</h2>
@@ -75,7 +101,6 @@
 
 		</div>
 		<%}else if(user.usertype.equals("Admin")){ %>
-
 
 	</div>
 	<li onclick="home()"><span class="fa fa-home" id="button">
@@ -120,6 +145,7 @@
 
 	<div id="content">
 			</div>
+
 	<%}else if(user.usertype.equals("Teacher")){ %>
 
 

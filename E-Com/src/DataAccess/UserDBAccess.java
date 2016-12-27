@@ -41,7 +41,7 @@ public class UserDBAccess {
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			rs.next();
-
+			user.userID = rs.getInt("UserID");
 			user.name = rs.getString("Name");
 			user.usertype = rs.getString("UserType");
 

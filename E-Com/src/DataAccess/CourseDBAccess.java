@@ -229,7 +229,7 @@ public class CourseDBAccess {
 			while (rs.next()) {
 				WorkYear[] grade = GradeDBAccess.getGrade(rs.getInt("StudentID"), rs.getInt("CourseID"));
 				Teacher[] teachers = selectTeachers(rs.getInt("CourseID"));
-				Courses[i++] = new Course (rs.getString("CourseName"), rs.getString("Description"), rs.getInt("Hours"), rs.getString("DepartmentName"), grade, teachers);
+				Courses[i++] = new Course (i, rs.getString("CourseName"), rs.getString("Description"), rs.getInt("Hours"), rs.getString("DepartmentName"), grade, teachers);
 			}
 		}
 
