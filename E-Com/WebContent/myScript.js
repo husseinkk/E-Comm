@@ -104,11 +104,11 @@ function addUser() {
   function removeCourse() {
     document.getElementById("content").innerHTML = "";
     var longEntry =
-      '<form id=\"form-style-1\">\
+      '<form id=\"form-style-1\" action="deleteCourseServlet" method="post">\
                 <button href="#" class="close"> X </button>\
                 <label>Course\
                 <select name="course">\
-                <option value="algorithms">Algorithms</option>\
+                <option value="Theory">Theory</option>\
                 <option value="SWE-2">SWE-2</option>\
                 <option value="Concept Of PLs">Concepts</option></select></label>\
                 <label><input type="submit"/></label>\
@@ -203,28 +203,29 @@ function assignCourse()
 {
     document.getElementById("content").innerHTML = "";
     var longEntry =
-        '<form id=\"form-style-1\">\
+        '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
                 <label>Course\
-                <select name="type">\
+                <select name="Cname" id="x">\
                 <option value="algorithms">Algorithms</option>\
                 <option value="SWE-2">SWE-2</option>\
-                <option value="math-1">Math-1</option>\
+                <option value="Theory">Theory</option>\
                 <option value="math-2">Math-2</option>\
                 <option value="pl1">PL1</option></select></label>\
-                <label><input href="#" type="submit" onclick="doctor()"/></label>\
+                <label><input href="#" type="submit" onclick="doctor(document.getElementById(\'x\').value)"/></label>\
                 </form>';
     document.getElementById("content").innerHTML = longEntry;
 }
-function doctor()
+function doctor(x)
 {
     document.getElementById("content").innerHTML = "";
     var longEntry =
-        '<form id=\"form-style-1\">\
+        '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
+    			<label>Course Name<input name="Cname" value=' + x + ' readonly="readonly"></input></label>\
                 <label>Doctor\
-                <select name="type">\
-                <option value="111">Sherif Khattab</option>\
+                <select name="Tname">\
+                <option value="Teacher">Teacher</option>\
                 <option value="124">Emad Nabil</option>\
                 <option value="142">Hussein Khaled</option>\
                 <option value="114">Mohamed Abo Treka</option>\

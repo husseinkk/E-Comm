@@ -43,6 +43,22 @@
     <url-pattern>/addCourseServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+      <servlet-name>deleteCourseServlet</servlet-name>
+      <servlet-class>Controller.deleteCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>deleteCourseServlet</servlet-name>
+      <url-pattern>/deleteCourseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>assignCourseServlet</servlet-name>
+      <servlet-class>Controller.assignCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>assignCourseServlet</servlet-name>
+      <url-pattern>/assignCourseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>SignOutServlet</servlet-name>
     <servlet-class>Controller.Sign_outServlet</servlet-class>
   </servlet>

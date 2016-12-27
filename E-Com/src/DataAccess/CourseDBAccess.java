@@ -83,6 +83,7 @@ public class CourseDBAccess {
 		// TODO implement here
 		Statement stmt = null;
 		String Query = "delete from Courses where CourseName = \"" + courseName + "\"";
+		System.out.println(courseName);
 
 		try {
 			currentCon = ConnectionManager.getConnection();
