@@ -28,7 +28,11 @@ public class Course {
      * 
      */
     public int Hour;
+<<<<<<< HEAD
     public int ind;
+=======
+
+>>>>>>> origin/master
     /**
      * 
      */
@@ -42,32 +46,32 @@ public class Course {
     /**
      * 
      */
-    private Course[] prerequisites;
+    public Course[] prerequisites;
 
     /**
      * 
      */
-    private Teacher[] doctors;
+    public Teacher[] doctors;
 
     /**
      * 
      */
-    private Teacher[] assistants;
+    public Teacher[] assistants;
 
     /**
      * 
      */
-    private Student[] students;
+    public Student[] students;
 
     /**
      * 
      */
-    private WorkYear[] grade;
+    public WorkYear[] grade;
 
     /**
      * 
      */
-    private String dept;
+    public String dept;
 
 
 

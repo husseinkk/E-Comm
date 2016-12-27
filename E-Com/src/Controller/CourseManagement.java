@@ -2,6 +2,8 @@ package Controller;
 
 import java.util.*;
 
+import DataAccess.CourseDBAccess;
+
 /**
  * 
  */
@@ -20,16 +22,18 @@ public class CourseManagement {
      */
     public boolean addCourse(Course course) {
         // TODO implement here
-        return false;
+    	CourseDBAccess c = new CourseDBAccess();
+		return c.addCourse(course);
     }
 
     /**
      * @param courseID 
      * @return
      */
-    public boolean deleteCourse(int courseID) {
+    public boolean deleteCourse(String courseName) {
         // TODO implement here
-        return false;
+    	CourseDBAccess c = new CourseDBAccess();
+		return c.deleteCourse(courseName);
     }
 
     /**
@@ -38,9 +42,10 @@ public class CourseManagement {
      * @param int 
      * @return
      */
-    public boolean assignCourse(int courseID, int teacherID) {
+    public boolean assignCourse(String courseName, String teacherName) {
         // TODO implement here
-        return false;
+    	CourseDBAccess c = new CourseDBAccess();
+		return c.assignCourse(courseName, teacherName);
     }
 
     /**

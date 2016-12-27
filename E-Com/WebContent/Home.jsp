@@ -36,10 +36,22 @@ function viewBox()
 		<div id="menuLeft">
 			<ul>
 				<div id="avatar">
+<<<<<<< HEAD
 					<%User user = (User)request.getAttribute("user");
                 	session.setAttribute("user", user);%>
 					<%Course[] crs = CourseDBAccess.selectCourses(user.userID); %>
 					<label>Hello, <%out.print(user.name); %> <%if(user.usertype.equals("Student")){ %>
+=======
+					<%
+						User user = (User) request.getAttribute("user");
+						session.setAttribute("user", user);
+					%>
+					<label>Hello, <%
+						out.print(user.name);
+					%> <%
+ 	if (user.usertype.equals("Student")) {
+ %>
+>>>>>>> origin/master
 						<div id="dropdown">
 							<button class="dropbtn">
 								<span class="fa fa-bell"></span>
@@ -65,18 +77,26 @@ function viewBox()
 								id="button"> Register Course</span></a></li>
 						<li><a href="#" onclick=""><span class="fa fa-trash"
 								id="button"> Drop Course</span></a></li>
+<<<<<<< HEAD
 						<li><a href="#" onclick="viewBox()"><span class="fa fa-eye"
 								id="button"> View Courses</span></a></li>
+=======
+						<li><a href="#"
+							onclick='viewCoursesStudent(<%CourseDBAccess.selectCourses(user.userID);%>)'><span
+								class="fa fa-trash" id="button"> View Courses</span></a></li>
+>>>>>>> origin/master
 					</ul></li>
 				<li><span class="fa fa-graduation-cap"> Grades</span>
 					<ul>
 						<li><a href="#" onclick=""><span class="fa fa-eye"
 								id="button"> View Grades</span></a></li>
 
-					</ul></li>
 
+					</ul>
+				<li onclick="signout()"><span class="fa fa-sign-out"
+					id="button"> Sign out</span></li>
 			</ul>
-
+			</li>
 		</div>
 		<div id="box">
 			<%for(int i = 0; i < crs.length; i++){ %>
@@ -100,11 +120,14 @@ function viewBox()
 			</div>
 
 		</div>
-		<%}else if(user.usertype.equals("Admin")){ %>
+		<%
+			} else if (user.usertype.equals("Admin")) {
+		%>
 
 	</div>
 	<li onclick="home()"><span class="fa fa-home" id="button">
 			Dashboard</span></li>
+
 	<li><span class="fa fa-users"> Users</span>
 		<ul>
 			<li><a href="#" onclick="addUser()"><span class="fa fa-plus"
@@ -138,15 +161,25 @@ function viewBox()
 		<ul>
 			<li><a href="#" onclick="addOffer()"><span
 					class="fa fa-plus" id="button"> Add Offer</span></a></li>
+
 		</ul></li>
+	<li onclick="signout()"><span class="fa fa-sign-out" id="button">
+			Sign out</span></li>
 	</ul>
 
 	</div>
 
+<<<<<<< HEAD
 	<div id="content">
 			</div>
 
 	<%}else if(user.usertype.equals("Teacher")){ %>
+=======
+	<div id="content"></div>
+	<%
+		} else if (user.usertype.equals("Teacher")) {
+	%>
+>>>>>>> origin/master
 
 
 	</div>
@@ -165,14 +198,17 @@ function viewBox()
 					class="fa fa-plus" id="button"> Add Grade</span></a></li>
 			<li><a href="#" onclick="editGrade()"><span
 					class="fa fa-pencil" id="button"> Edit Grade</span></a></li>
+
 		</ul></li>
+	<li onclick="signout()"><span class="fa fa-sign-out" id="button">
+			Sign out</span></li>
 	</ul>
-
 	</div>
 
-	<div id="content">
-	</div>
-	<%} %> 
+	<div id="content"></div>
+	<%
+		}
+	%>
 
 	</div>
 

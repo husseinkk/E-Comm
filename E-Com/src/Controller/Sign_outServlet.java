@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 /**
  * 
  */
-public class Sign_outServlet {
+public class Sign_outServlet extends javax.servlet.http.HttpServlet {
 
     /**
      * Default constructor
@@ -32,12 +32,9 @@ public class Sign_outServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		/* doGet(request, response); */
-		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("signin.jsp").include(request, response);
 		HttpSession session=request.getSession();  
-        session.invalidate();  
-        out.print("You are successfully logged out!");  
-        out.close(); 
+		session.invalidate();  
+		request.getRequestDispatcher("Sign_in.jsp").forward(request, response); 
 		
 	}
 
