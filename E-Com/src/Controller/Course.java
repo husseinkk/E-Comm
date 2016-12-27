@@ -26,47 +26,47 @@ public class Course {
 	/**
      * 
      */
-    private int Hour;
+    public int Hour;
 
     /**
      * 
      */
-    private String courseName;
+    public String courseName;
 
     /**
      * 
      */
-    private String courseDescription;
+    public String courseDescription;
 
     /**
      * 
      */
-    private Course[] prerequisites;
+    public Course[] prerequisites;
 
     /**
      * 
      */
-    private Teacher[] doctors;
+    public Teacher[] doctors;
 
     /**
      * 
      */
-    private Teacher[] assistants;
+    public Teacher[] assistants;
 
     /**
      * 
      */
-    private Student[] students;
+    public Student[] students;
 
     /**
      * 
      */
-    private WorkYear[] grade;
+    public WorkYear[] grade;
 
     /**
      * 
      */
-    private String dept;
+    public String dept;
 
 
 

@@ -85,17 +85,16 @@ function addUser() {
   function addCourse() {
     document.getElementById("content").innerHTML = "";
     var longEntry =
-      '<form id=\"form-style-1\">\
+      '<form id=\"form-style-1\" action="addCourseServlet" method="post">\
                 <button href="#" class="close"> X </button>\
-                <label>Course Name <input type="text" placeholder="Name"/></label>\
-                <label>Course ID <input type="text" placeholder="Username"/></label>\
-                <label>Credit Hours<input type="text" placeholder="Password"/></label>\
+                <label>Course Name <input type="text" placeholder="Name" name="Cname" /></label>\
+                <label>Credit Hours<input type="text" placeholder="Hours" name="Chours"/></label>\
                 <label>Department\
-                <select name="type">\
+                <select name="Cdesc">\
                 <option value="CS">CS</option>\
                 <option value="IT">IT</option>\
                 <option value="DS">IT</option></select></label>\
-                <label>Description <textarea style="resize:none;"></textarea></label>\
+                <label>Description <textarea style="resize:none;" name="Cdept"></textarea></label>\
                 <label><input type="submit"/></label>\
                 </form>';
     document.getElementById("content").innerHTML = longEntry;

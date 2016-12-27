@@ -34,6 +34,14 @@
     <servlet-name>removeUserServlet</servlet-name>
     <url-pattern>/removeUserServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>addCourseServlet</servlet-name>
+    <servlet-class>Controller.addCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addCourseServlet</servlet-name>
+    <url-pattern>/addCourseServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>SignOutServlet</servlet-name>
     <servlet-class>Controller.Sign_outServlet</servlet-class>
