@@ -18,6 +18,14 @@
     <servlet-name>SignInServlet</servlet-name>
     <url-pattern>/SignInServlet</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>addGradeServlet</servlet-name>
+    <servlet-class>Controller.addGradeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addGradeServlet</servlet-name>
+    <url-pattern>/addGradeServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>addUserServlet</servlet-name>
     <servlet-class>Controller.addUserServlet</servlet-class>
