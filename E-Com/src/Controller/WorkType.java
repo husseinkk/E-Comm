@@ -7,5 +7,9 @@ public enum WorkType {
     Assignment,
     Attendance,
     Task,
-    Quiz
+    Quiz,
+    Final, 
+    Midterm,
+    Project,
+    Bonus
 }

@@ -33,7 +33,7 @@ public class Sign_outServlet {
 		// TODO Auto-generated method stub
 		/* doGet(request, response); */
 		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("signin.jsp").include(request, response);
+		request.getRequestDispatcher("signin.jsp").forward(request, response);
 		HttpSession session=request.getSession();  
         session.invalidate();  
         out.print("You are successfully logged out!");  
