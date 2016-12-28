@@ -192,9 +192,9 @@ public class CourseDBAccess {
 	/**
 	 * @return
 	 */
-	public Set<Course> selectCourses() {
+	public Course[] selectTCourses(int userID) {
 		// TODO implement here
-		return null;
+				return null;
 	}
 
 	/**
@@ -204,6 +204,7 @@ public class CourseDBAccess {
 	 */
 	public Set<Course> selectCourses(int studentID, int semesterNo) {
 		// TODO implement here
+		
 		return null;
 	}
 

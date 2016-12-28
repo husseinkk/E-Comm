@@ -40,7 +40,7 @@ public class NotificationDBAccess {
 		}
 
 		catch (Exception ex) {
-			System.out.println("AddStudent failed: An Exception has occurred! " + ex);
+			System.out.println("AddNotifications failed: An Exception has occurred! " + ex);
 			return false;
 		}
 

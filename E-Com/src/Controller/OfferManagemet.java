@@ -22,7 +22,6 @@ public class OfferManagemet {
      * @return 
      */
     public boolean addOffer(Offer offer) {
-		return false;
         // TODO implement here
     	UserDBAccess u = new UserDBAccess();
     	NotificationDBAccess n = new NotificationDBAccess();
@@ -30,7 +29,7 @@ public class OfferManagemet {
     	for (Student st : s) {
     		n.addNotification(offer.description, st.studID);
     	}
-    	
+    	return true;
     }
 
 }

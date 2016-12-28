@@ -341,62 +341,47 @@ public class UserDBAccess {
 	 */
 	public boolean editUser(User user) {
 		// TODO implement here
-		return false;
-	}
+		Statement stmt = null;
+		String Query = null;
+		if (user.name != null) {
+			Query = "update Users set Password = \"" + user.password + "\" , Name = \"" + user.name + "\""
+					+ " where Username = \"" + user.username + "\"";
+		} else {			
+			Query = "update Users set Password = \"" + user.password + "\" where Username = \"" + user.username + "\"";
+		}
 
-	/**
-	 * @param level
-	 * @return
-	 */
-	public User[] selectUsers(int level) {
-		// TODO implement here
-		return null;
-	}
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			stmt.executeUpdate(Query);
+		}
 
-	/**
-	 * @param userID
-	 * @return
-	 */
-	public User selectUser(int userID) {
-		// TODO implement here
-		return null;
-	}
+		catch (Exception ex) {
+			System.out.println("EditUser failed: An Exception has occurred! " + ex);
+			return false;
+		}
 
-	/**
-	 * @param gpa
-	 * @param department
-	 * @return
-	 */
-	public User[] selectUser(float gpa, String department) {
-		// TODO implement here
-		return null;
-	}
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
 
-	/**
-	 * @param course
-	 * @param type
-	 * @return
-	 */
-	public User[] selectUser(Course course, String type) {
-		// TODO implement here
-		return null;
-	}
+		}
+		return true;
 
-	/**
-	 * @param user
-	 * @return
-	 */
 
-	/**
-	 * @param rate
-	 * @param teacher
-	 * @return
-	 */
-	public boolean rateTeacher(int rate, Teacher teacher) {
-		// TODO implement here
-		return false;
 	}
-	
 	public Student[] selectStudents (float GPA , String Department) {
 		Statement stmt = null;
 		String Query = "select * from Students join Departments on Students.DepartmentID = Departments.DepartmentID"
@@ -439,5 +424,54 @@ public class UserDBAccess {
 		}
 		return students;
 	}
+	
 
+	/**
+	 * @param level
+	 * @return
+	 */
+	public User[] selectUsers(int level) {
+		// TODO implement here
+		return null;
+	}
+	
+	/**
+	 * @param userID
+	 * @return
+	 */
+	public User selectUser(int userID) {
+		// TODO implement here
+		return null;
+	}
+	
+	/**
+	 * @param gpa
+	 * @param department
+	 * @return
+	 */
+	public User[] selectUser(float gpa, String department) {
+		// TODO implement here
+		return null;
+	}
+	
+	/**
+	 * @param course
+	 * @param type
+	 * @return
+	 */
+	public User[] selectUser(Course course, String type) {
+		// TODO implement here
+		return null;
+	}
+	
+	/**
+	 * @param rate
+	 * @param teacher
+	 * @return
+	 */
+	public boolean rateTeacher(int rate, Teacher teacher) {
+		// TODO implement here
+		return false;
+	}
 }
+
