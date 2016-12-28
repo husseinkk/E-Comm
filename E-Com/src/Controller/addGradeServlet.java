@@ -21,21 +21,7 @@ public class addGradeServlet extends javax.servlet.http.HttpServlet{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		/* doGet(request, response); */
-		GradeManagement grade = new GradeManagement();
-		Grade grade = new Grade();
-		String cname = (String) request.getParameter("Cname");
-		String cdesc = (String) request.getParameter("Cdesc");
-		String chours = (String) request.getParameter("Chours");
-		String cdept = (String) request.getParameter("Cdept");
-		c.courseName = cname;
-		c.courseDescription = cdesc;
-		c.Hour = Integer.parseInt(chours);
-		c.dept = cdept;
-		System.out.println(cdesc + " " + cname);
-		if(course.addCourse(c)){
-			request.setAttribute("user", request.getSession().getAttribute("user"));
-			request.getRequestDispatcher("Home.jsp").forward(request, response);
-		}
+		
 	}
 
     /**

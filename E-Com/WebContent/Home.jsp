@@ -95,35 +95,25 @@
 			</li>
 		</div>
 		<div id="box">
-			<%
-				for (int i = 0; i < crs.length; i++) {
-			%>
-			<div id="block">
-				<label> <%
- 	out.print(crs[i].courseName);
- %>
-				</label>
-				<div id="block-content">
-					<p>
-						Credit Hours:
-						<%
-						out.print(crs[i].Hour);
-					%>
-					</p>
+				<div id="scrollMenu">
+				<%
+					for (int i = 0; i < crs.length; i++) {
+				%>
+				<div id="block">
+					<label><%out.print(crs[i].courseName);%></label>
+					<div id="block-content">
+						<p>Credit Hours:<%out.print(crs[i].Hour);%></p>
+					</div>
+				</div>
+				<% } %>
 				</div>
 			</div>
-			<%
-				}
-			%>
-
-		</div>
 		<div id="content">
-
 			<div id="form-style-1">
 				<header>
 				<h2>Progress</h2>
 				</header>
-				<label id="home">GPA : 2.68</label> <label id="home">Hours :
+				<label id="home">GPA : 2.85</label> <label id="home">Hours :
 					18 Hours</label> <label id="home">Courses : 8 Courses</label>
 			</div>
 
