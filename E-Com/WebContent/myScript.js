@@ -234,14 +234,14 @@ function assignCourse() {
 	document.getElementById("content").innerHTML = "";
 	var longEntry = '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
-                <label>Course\
+				<label>Course\
                 <select name="Cname" id="x">\
                 <option value="algorithms">Algorithms</option>\
                 <option value="SWE-2">SWE-2</option>\
                 <option value="Theory">Theory</option>\
                 <option value="math-2">Math-2</option>\
                 <option value="pl1">PL1</option></select></label>\
-                <label><input href="#" style="margin:0;margin-top: -8px; margin-left:70px;"type="submit" onclick="doctor(document.getElementById(\'x\').value)"/></label>\
+                <label><input style="margin:0;margin-top: -8px; margin-left:70px;"type="button" value="Submit" onclick="doctor(document.getElementById(\'x\').value)"/></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;
 }
@@ -249,9 +249,7 @@ function doctor(x) {
 	document.getElementById("content").innerHTML = "";
 	var longEntry = '<form id=\"form-style-1\" action="assignCourseServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
-    			<label>Course Name<input name="Cname" value='
-			+ x
-			+ ' readonly="readonly"></input></label>\
+    			<label>Course Name<input name="Cname" value='+ x + ' readonly="readonly"></input></label>\
                 <label>Doctor\
                 <select name="Tname">\
                 <option value="Teacher">Teacher</option>\

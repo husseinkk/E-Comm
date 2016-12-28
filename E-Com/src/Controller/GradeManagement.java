@@ -2,6 +2,8 @@ package Controller;
 
 import java.util.*;
 
+import DataAccess.GradeDBAccess;
+
 /**
  * 
  */
@@ -30,8 +32,9 @@ public class GradeManagement {
      * @param studID 
      * @return
      */
-    public boolean editGrade(Grade grade, int studID) {
+    public boolean editGrade(WorkYear work, int studID, String Cname) {
         // TODO implement here
+    	
         return false;
     }
 
@@ -40,9 +43,10 @@ public class GradeManagement {
      * @param studID 
      * @return
      */
-    public boolean addGrade(Grade grade, int studID) {
+    public boolean addGrade(WorkYear work, String Cname, int studID) {
         // TODO implement here
-        return false;
+    	GradeDBAccess grade = new GradeDBAccess();
+    	return grade.addGrade(work,Cname , studID);
     }
 
 }

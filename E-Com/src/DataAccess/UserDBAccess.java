@@ -343,7 +343,7 @@ public class UserDBAccess {
 		// TODO implement here
 		Statement stmt = null;
 		String Query = null;
-		if (user.name != null) {
+		if (user.name != "") {
 			Query = "update Users set Password = \"" + user.password + "\" , Name = \"" + user.name + "\""
 					+ " where Username = \"" + user.username + "\"";
 		} else {			

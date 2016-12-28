@@ -28,9 +28,48 @@ public class GradeDBAccess {
      * @param studID 
      * @return
      */
-    public boolean addGrade(WorkYear grade, int studID) {
+    public boolean addGrade(WorkYear grade, int courseID, int studentID) {
         // TODO implement here
-        return false;
+    	Statement stmt = null;
+		
+		String Query = "select * from Students join Semesters join SemestersCourse on Students.StudentID = Semesters.StudentID "
+				+ " && Semesters.SemesterID = SemestersCourses.SemesterID where StudentID = " + grade. + "&& Number = " + semesterNo;
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int semesterID = rs.getInt("SemesterID");
+			Query ="insert into SemestersCourses (SemesterID, CourseID) values (" + semesterID + ", " + courseID + ")"; 
+			stmt.executeUpdate(Query);
+			}
+
+		catch (Exception ex) {
+			System.out.println("RegisterCourse failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+
+
+		return true;
+
     }
 
     /**

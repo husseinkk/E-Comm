@@ -1,6 +1,5 @@
 package DataAccess;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -176,7 +175,45 @@ public class CourseDBAccess {
 	 */
 	public boolean registerCourse(int courseID, int semesterNo, int studID) {
 		// TODO implement here
-		return false;
+		Statement stmt = null;
+		
+		String Query = "select * from Students join Semesters on Students.StudentID = Semesters.StudentID where "
+				+ "StudentID = " + studID + "&& Number = " + semesterNo;
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int semesterID = rs.getInt("SemesterID");
+			Query ="insert into SemestersCourses (SemesterID, CourseID) values (" + semesterID + ", " + courseID + ")"; 
+			stmt.executeUpdate(Query);
+			}
+
+		catch (Exception ex) {
+			System.out.println("RegisterCourse failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+
+
+		return true;
 	}
 
 	/**
