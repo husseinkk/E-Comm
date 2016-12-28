@@ -15,6 +15,11 @@ import javax.servlet.http.HttpSession;
 public class Sign_outServlet extends javax.servlet.http.HttpServlet {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * Default constructor
      */
     public Sign_outServlet() {
@@ -32,11 +37,6 @@ public class Sign_outServlet extends javax.servlet.http.HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		/* doGet(request, response); */
-<<<<<<< HEAD
-		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("signin.jsp").forward(request, response);
-=======
->>>>>>> 1bf90c30569fd3542079a50528185ea0216762c4
 		HttpSession session=request.getSession();  
 		session.invalidate();  
 		request.getRequestDispatcher("Sign_in.jsp").forward(request, response); 

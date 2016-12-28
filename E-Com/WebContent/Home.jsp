@@ -119,7 +119,7 @@
 						<%WorkYear[] wk = crs[i].grade; %>
 						<%for(int j = 0; j < wk.length; j++){ %>
 						</br>
-							<p><%out.print(wk[j].type + " : " + wk[j].description);%></p>
+							<p><%out.print(wk[j].type + " : " + wk[j].score);%></p>
 							</br>
 							<p><%out.print("Due Date :" +  wk[j].dueDate);%></p>
 							<%} %>
