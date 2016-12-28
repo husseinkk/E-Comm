@@ -28,19 +28,25 @@ public class GradeDBAccess {
      * @param studID 
      * @return
      */
-    public boolean addGrade(WorkYear grade, int courseID, int studentID) {
+    public boolean addGrade(WorkYear grade, String courseName, int studentID) {
         // TODO implement here
     	Statement stmt = null;
-		
-		String Query = "select * from Students join Semesters join SemestersCourse on Students.StudentID = Semesters.StudentID "
-				+ " && Semesters.SemesterID = SemestersCourses.SemesterID where StudentID = " + grade. + "&& Number = " + semesterNo;
+		String Query = "select * from Students join Semesters join SemestersCourses join Courses on "
+				+ "Students.StudentID = Semesters.StudentID  && Semesters.SemesterID = SemestersCourses.SemesterID "
+				+ "&& SemestersCourses.CourseID = Courses.CourseID where Students.StudentID = " + studentID 
+				+ "&& CourseName = \"" + courseName +"\"";
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();
 			rs = stmt.executeQuery(Query);
 			rs.next();
-			int semesterID = rs.getInt("SemesterID");
-			Query ="insert into SemestersCourses (SemesterID, CourseID) values (" + semesterID + ", " + courseID + ")"; 
+			int semesterID = rs.getInt("SCID");
+			Query = "select * from WorkTypes where WorkType = \"" + grade.type + "\"" ;
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int WorkTypeID = rs.getInt("WorkTypeID");
+			Query ="insert into WorkYears (Description, Score, SCID, WorkTypeID) values (\"" + grade.description 
+					+"\", " + grade.score+ ", " + semesterID +", " +WorkTypeID + ")"; 
 			stmt.executeUpdate(Query);
 			}
 
