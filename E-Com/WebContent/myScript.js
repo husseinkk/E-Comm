@@ -167,18 +167,19 @@ function addOffer() {
 }
 function addGrade() {
 	document.getElementById("content").innerHTML = "";
-	var longEntry = '<form id=\"form-style-1\">\
+	var longEntry = '<form id=\"form-style-1\" action="addGradeServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
-                <label>Student ID <input type="text" placeholder="Student ID"/></label>\
-                <label>Course ID <input type="text" placeholder="Course ID"/></label>\
+                <label>Student ID <input name="studId" type="text" placeholder="Student ID"/></label>\
+                <label>Course Name<input name="cname" type="text" placeholder="Course Name" /></label>\
+		<label>Description <textarea style="resize:none;" name ="desc"></textarea></label>\
                 <label>Type\
                 <select name="type">\
-                <option value="attendance">Attendance</option>\
-                <option value="bonus">Bonus</option>\
-                <option value="assignment">Assignment</option>\
-                <option value="midterm">Mid-Term</option>\
-                <option value="final">Final</option></select></label>\
-                <label>Value <input type="text" placeholder="Value"/></label>\
+                <option value="Attendance">Attendance</option>\
+                <option value="Bonus">Bonus</option>\
+                <option value="Assignment">Assignment</option>\
+                <option value="Midterm">Mid-Term</option>\
+                <option value="Final">Final</option></select></label>\
+                <label>Value <input name="val" type="text" placeholder="Value"/></label>\
                 <label><input type="submit"/></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;

@@ -21,7 +21,7 @@ public class WorkYear {
     /**
      * 
      */
-    public int score;
+    public float score;
 
     /**
      * 

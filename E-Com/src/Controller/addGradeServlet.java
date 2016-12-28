@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DataAccess.GradeDBAccess;
+
 /**
  * 
  */
@@ -21,6 +23,20 @@ public class addGradeServlet extends javax.servlet.http.HttpServlet{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		/* doGet(request, response); */
+		String cname = request.getParameter("cname");
+		String desc = request.getParameter("desc");
+		String studId = request.getParameter("studId");
+		String value = request.getParameter("val");
+		String type = request.getParameter("type");
+		float score = Float.parseFloat(value);
+		WorkYear wk = new WorkYear();
+		wk.type = type;
+		wk.score = score;
+		wk.description = desc;
+		GradeDBAccess gd = new GradeDBAccess();
+		gd.addGrade(wk, cname, Integer.parseInt(studId));
+		request.setAttribute("user", request.getSession().getAttribute("user"));
+		request.getRequestDispatcher("Home.jsp").forward(request, response);
 		
 	}
 
