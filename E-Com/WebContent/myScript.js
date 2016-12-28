@@ -151,7 +151,7 @@ function removeCourse() {
 }
 function addOffer() {
 	document.getElementById("content").innerHTML = "";
-	var longEntry = '<form id=\"form-style-1\">\
+	var longEntry = '<form id=\"form-style-1\" action="addOfferServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
                 <label>Offer Name <input type="text" placeholder="Name"/></label>\
                 <label>GPA <input type="text" placeholder="GPA"/></label>\

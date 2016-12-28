@@ -385,7 +385,7 @@ public class UserDBAccess {
 	public Student[] selectStudents (float GPA , String Department) {
 		Statement stmt = null;
 		String Query = "select * from Students join Departments on Students.DepartmentID = Departments.DepartmentID"
-				+ " where Students.GPA = " + GPA + "&& Departments.DepartmentName = \"" + Department+ "\"";
+				+ " where Students.GPA >= " + GPA + "&& Departments.DepartmentName = \"" + Department+ "\"";
 		Student[] students = null;
 
 		try {
