@@ -41,7 +41,7 @@ public class WorkYear {
      * @param string 
      * @return
      */
-    public WorkYear(Date dueDate, String description, int score, String string) {
+    public WorkYear(Date dueDate, String description, float score, String string) {
         // TODO implement here
     	this.dueDate = dueDate;
     	this.description = description;

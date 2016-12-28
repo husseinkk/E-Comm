@@ -121,7 +121,7 @@
 						</br>
 							<p><%out.print(wk[j].type + " : " + wk[j].score);%></p>
 							</br>
-							<p><%out.print("Due Date :" +  wk[j].dueDate);%></p>
+							<p><%out.print("Description :" +  wk[j].description);%></p>
 							<%} %>
 					</div>
 				</div>

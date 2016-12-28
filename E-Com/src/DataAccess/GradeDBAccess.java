@@ -116,7 +116,7 @@ public class GradeDBAccess {
 			int i = 0;
 			while (rs.next()) {
 				Workyears[i++] = new WorkYear(rs.getDate("DueDate") , rs.getString("Description") 
-						, rs.getInt("Score"), rs.getString("WorkType"));
+						, rs.getFloat("Score"), rs.getString("WorkType"));
 			}
 			
 		}
