@@ -132,7 +132,7 @@
 					id="button"> Add User</span></a></li>
 			<li><a href="#" onclick="removeUser()"><span
 					class="fa fa-trash" id="button"> Remove User</span></a></li>
-			<li><a href="#" onclick=""><span class="fa fa-pencil"
+			<li><a href="#" onclick="editUser()"><span class="fa fa-pencil"
 					id="button"> Edit User</span></a></li>
 		</ul></li>
 	<li><span class="fa fa-file"> Courses</span>

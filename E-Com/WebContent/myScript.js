@@ -14,13 +14,23 @@ function addUser() {
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;
 }
+function editUser(){
+	document.getElementById("content").innerHTML = "";
+	var longEntry = '<form id=\"form-style-1\" action="editUserServlet" method="post">\
+        <label>Username <input type="text" placeholder="Username" name="un"/></label>\
+		<label>Name <input type="text" placeholder="Name" name="name"/></label>\
+        <label>Password <input type="text" placeholder="Password" name="pass"/></label>\
+		<label><input style="margin:0;margin-top: -8px; margin-left:70px;" type="submit" value="Edit user"/></label>\
+        </form>';
+	document.getElementById("content").innerHTML = longEntry;
+}
 
 function removeUser() {
 	document.getElementById("content").innerHTML = "";
 	var longEntry = '<form id=\"form-style-1" <style="height:30px;" action="removeUserServlet" method="post">\
                 <button href="#" class="close"> X </button>\
                 <label>Username <input type="text" placeholder="Username" name="name"/></label>\
-                <label><input type="submit"/></label>\
+                <label><input style="margin:0;margin-top: -8px; margin-left:70px;" type="submit"/></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;
 }
@@ -52,7 +62,7 @@ function path(a, z, x, y) {
                 <option value="DS">DS</option>\
                 <option value="CS">CS</option>\
                 <option value="IT">IT</option></select></label>\
-                <label><input href="#" type="submit"/></label>\
+                <label><input style="margin:0;margin-top: -8px; margin-left:70px;" href="#" type="submit"/></label>\
                 </form>';
 		document.getElementById("content").innerHTML = longEntry;
 	} else if (a == "Teacher") {
@@ -114,7 +124,7 @@ function addCourse() {
     			<option value="IS">IS</option>\
                 <option value="DS">DS</option></select></label>\
                 <label>Description <textarea style="resize:none;" name="Cdesc"></textarea></label>\
-                <label><input type="submit" value="Add course" /></label>\
+                <label><input style="margin:0;margin-top: -5px; margin-left:70px;" type="submit" value="Add course" /></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;
 }
@@ -135,7 +145,7 @@ function removeCourse() {
                 <option value="Theory">Theory</option>\
                 <option value="SWE-2">SWE-2</option>\
                 <option value="Concept Of PLs">Concepts</option></select></label>\
-                <label><input type="submit"/></label>\
+                <label><input style="margin:0;margin-top: -8px; margin-left:70px;"type="submit"/></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;
 }
@@ -230,7 +240,7 @@ function assignCourse() {
                 <option value="Theory">Theory</option>\
                 <option value="math-2">Math-2</option>\
                 <option value="pl1">PL1</option></select></label>\
-                <label><input href="#" type="submit" onclick="doctor(document.getElementById(\'x\').value)"/></label>\
+                <label><input href="#" style="margin:0;margin-top: -8px; margin-left:70px;"type="submit" onclick="doctor(document.getElementById(\'x\').value)"/></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;
 }
@@ -248,7 +258,7 @@ function doctor(x) {
                 <option value="142">Hussein Khaled</option>\
                 <option value="114">Mohamed Abo Treka</option>\
                 <option value="126">Abdallah Ahmed</option></select></label>\
-                <label><input type="submit"/></label>\
+                <label><input style="margin:0;margin-top: -8px; margin-left:70px;"type="submit"/></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;
 
