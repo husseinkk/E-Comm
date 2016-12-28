@@ -151,16 +151,16 @@ function removeCourse() {
 }
 function addOffer() {
 	document.getElementById("content").innerHTML = "";
-	var longEntry = '<form id=\"form-style-1\">\
+	var longEntry = '<form id=\"form-style-1\" action="addOfferServlet" method="post">\
                 <button href="index.html" class="close"> X </button>\
-                <label>Offer Name <input type="text" placeholder="Name"/></label>\
-                <label>GPA <input type="text" placeholder="GPA"/></label>\
+                <label>Offer Name <input type="text" placeholder="Name" name="name"/></label>\
+                <label>GPA <input type="text" placeholder="GPA" name = "gpa" /></label>\
                 <label>Department\
                 <select name="type">\
                 <option value="CS">CS</option>\
                 <option value="IT">IT</option>\
                 <option value="DS">IT</option></select></label>\
-                <label>Description <textarea style="resize:none;"></textarea></label>\
+                <label>Description <textarea style="resize:none;" name ="desc"></textarea></label>\
                 <label><input type="submit"/></label>\
                 </form>';
 	document.getElementById("content").innerHTML = longEntry;

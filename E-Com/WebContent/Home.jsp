@@ -1,3 +1,4 @@
+<%@page import="Controller.WorkYear"%>
 <%@page import="jdk.nashorn.internal.parser.JSONParser"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="javafx.scene.web.WebView"%>
@@ -13,6 +14,7 @@
 <title>Welcome Home</title>
 <%@page import="Controller.User"%>
 <%@page import="Controller.Course"%>
+<%@page import="Controller.WorkYear"%>
 <%@page import="DataAccess.CourseDBAccess"%>
 <link rel="stylesheet" href="/E-Com/style.css">
 <link rel="stylesheet"
@@ -23,8 +25,17 @@
 <script type="text/javascript">
 	function viewBox() {
 		var element = document.getElementById('box');
+		var element1 = document.getElementById('content');
 		element.style.display = "block";
+		element1.style.display = "None";
 	}
+	function viewDash() {
+		var element = document.getElementById('box');
+		var element1 = document.getElementById('content');
+		element.style.display = "None";
+		element1.style.display = "block";
+	}
+	
 </script>
 </head>
 <body>
@@ -68,7 +79,7 @@
 						</div>
 					</div>
 				</div>
-				<li onclick="home()"><span class="fa fa-home" id="button">
+				<li onclick="viewDash()"><span class="fa fa-home" id="button">
 						Dashboard</span></li>
 
 				<li><span class="fa fa-file"> Courses</span>
@@ -103,6 +114,15 @@
 					<label><%out.print(crs[i].courseName);%></label>
 					<div id="block-content">
 						<p>Credit Hours:<%out.print(crs[i].Hour);%></p>
+						</br>
+						<p>Grades: </p>
+						<%WorkYear[] wk = crs[i].grade; %>
+						<%for(int j = 0; j < wk.length; j++){ %>
+						</br>
+							<p><%out.print(wk[j].type + " : " + wk[j].description);%></p>
+							</br>
+							<p><%out.print("Due Date :" +  wk[j].dueDate);%></p>
+							<%} %>
 					</div>
 				</div>
 				<% } %>

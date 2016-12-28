@@ -16,17 +16,17 @@ public class WorkYear {
     /**
      * 
      */
-    private Date dueDate;
+    public Date dueDate;
 
     /**
      * 
      */
-    private int score;
+    public int score;
 
     /**
      * 
      */
-    private String description;
+    public String description;
 
     /**
      * 

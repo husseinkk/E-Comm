@@ -27,16 +27,17 @@ public class addOfferServlet extends javax.servlet.http.HttpServlet{
 		String odesc = (String) request.getParameter("desc");
 		String oGPA = (String)request.getParameter("gpa");
 		String oDept = (String) request.getParameter("type");
+		System.out.println(oGPA);
 		float GPA = Float.parseFloat(oGPA);
 		offer.GPA = GPA;
 		offer.description = odesc;
 		offer.department = oDept;
 		offer.offerName = oname;
 		System.out.println(oname + " " + odesc);
-		if(f.addOffer(offer)){
-			request.setAttribute("user", request.getSession().getAttribute("user"));
-			request.getRequestDispatcher("Home.jsp").forward(request, response);
-		}
+		f.addOffer(offer);
+		request.setAttribute("user", request.getSession().getAttribute("user"));
+		request.getRequestDispatcher("Home.jsp").forward(request, response);
+	
 	}
 
     /**
