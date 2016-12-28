@@ -31,8 +31,8 @@ public class NotificationDBAccess {
     public boolean addNotification(String nDescr, int studentID) {
         // TODO implement here
     	Statement stmt = null;
-		String Query = "insert into Notifications (Description, StudentID) values (\"" + nDescr + "\", " + studentID;
-
+		String Query = "insert into Notifications (Description, StudentID) values (\"" + nDescr + "\", " + studentID + ")";
+		System.out.println(Query);
 		try {
 			currentCon = ConnectionManager.getConnection();
 			stmt = currentCon.createStatement();

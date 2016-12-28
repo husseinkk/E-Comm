@@ -27,6 +27,7 @@ public class addOfferServlet extends javax.servlet.http.HttpServlet{
 		String odesc = (String) request.getParameter("desc");
 		String oGPA = (String)request.getParameter("gpa");
 		String oDept = (String) request.getParameter("type");
+		System.out.println(oGPA);
 		float GPA = Float.parseFloat(oGPA);
 		offer.GPA = GPA;
 		offer.description = odesc;
