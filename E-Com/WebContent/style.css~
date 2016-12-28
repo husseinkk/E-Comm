@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
-
 html 
 {
    font-family: 'Comfortaa', cursive;
@@ -18,18 +17,12 @@ html
 }
 
 #banner button {
-    font-size: 25px;
   float: right;
   width: 60px;
   height: 60px;
   background: rgba(54, 25, 25, 0);
+  background-image: url("https://s23.postimg.org/66zueu7e3/Untitled_1_opt.png");
   background-repeat: no-repeat;
-}
-#banner button:active span
-{
-    transform: rotateX(80deg);
-    /*transform: rotate(80deg);*/
-    transition-duration: 1s;
 }
 
 #menuLeft {
@@ -42,23 +35,7 @@ html
   z-index: -20;
 }
 
-#box
-{
-    display: none;
-    position: relative;
-    float: right;
-    padding: 0;
-    margin-top: -500px;
-    margin-right: 12%;
-    width: 350px;
-    height: auto;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 10px solid #39679f;
-}
-
 #content {
-    float: left;
   margin: 0;
   padding: 0;
   margin-top: -580px;
@@ -187,12 +164,8 @@ span {
   border-bottom-right-radius: 10px;
   border: 10px solid #39679f;
 }
-#form-style-1 button
-{
-    cursor: pointer;
-}
-#form-style-1 label 
-{
+
+#form-style-1 label {
   color: #39679f;
   position: relative;
   padding: 0;
@@ -202,6 +175,12 @@ span {
   margin-right: 8%;
   float: right;
 }
+/* #form-style-1 label input[type=button]
+{
+	background-color : red;
+	width:50px;
+	height:50px;
+} */
 #form-style-1 label[id=home]
 {  
   color: #fecbf9;
@@ -209,7 +188,7 @@ span {
   height: auto;
   margin-top: 5%;
 }
-#box #scrollMenu
+#form-style-1 #scrollMenu
 {
     width: 100%;
     height: 280px;
@@ -223,64 +202,6 @@ span {
     margin-left: 5%;
     border-bottom: 1px solid #fecbf9;
 }
-#scrollMenu #block
-{
-    position: relative;
-    margin: 5px;
-    float: left;
-    background-color: #fecbf9;
-    width: 98%;
-    height: 50px;
-}
-#block label
-{
-    margin: 0;
-    padding: 0;
-    position: relative;
-    margin-left: 5%;
-    color: black;
-    background-color: #fecbf9;
-}
-#block-content
-{
-    opacity: 0;
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100px;
-    margin-top: 15%;
-    border: 1px solid black;
-    background-color: #fecbf0;
-}
-
-#block-content p
-{
-    color: aliceblue;
-}
-#scrollMenu #block:hover
-{
-    background-color: #fecbf9;
-    float: left;
-    height: 150px;
-    transition: all 1s;
-    z-index: 150;
-}
-#scrollMenu #block:hover #block-content
-{
-    opacity: 1;
-    display: block;
-    z-index: 150;
-}
-#block p
-{
-    color: black;
-    display: inline;
-    max-width: 50px;
-}
-#block span
-{
-    
-}
 #scrollMenu label span
 {
     cursor: pointer;
@@ -291,10 +212,10 @@ span {
   padding: 0;
   color: #fecbf9;
   height: 25px;
-  margin-top: -3%;
+  margin-top: -80%;
 }
 
-#form-style-1 label input[type=submit] {
+#form-style-1 label input[type=button] {
   color: #fecbf9;
   padding: 0;
   height: 25px;

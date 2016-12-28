@@ -33,16 +33,89 @@ public class CourseDBAccess {
 	 */
 	public boolean addCourse(Course course) {
 		// TODO implement here
-		return false;
+		Statement stmt = null;
+		
+		String Query = "select * from Departments where DepartmentName = \"" + course.getDept() + "\"";
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int dept = rs.getInt("DepartmentID");
+			Query ="insert into Courses (CourseName, Description, Hours, DepartmentID) values (\"" 
+					+ course.getCourseName() + "\" , \"" + course.getCourseDescription() + "\", " 
+					+ course.getHours() + ", " + dept + ")";
+			stmt.executeUpdate(Query);
+			}
+
+		catch (Exception ex) {
+			System.out.println("AddCourses failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+
+
+		return true;
 	}
 
 	/**
 	 * @param courseID
 	 * @return
 	 */
-	public boolean deleteCourse(int courseID) {
+	public boolean deleteCourse(String courseName) {
 		// TODO implement here
-		return false;
+		Statement stmt = null;
+		String Query = "delete from Courses where CourseName = \"" + courseName + "\"";
+		System.out.println(courseName);
+
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			stmt.executeUpdate(Query);
+		}
+
+		catch (Exception ex) {
+			System.out.println("DeleteCourse failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+		return true;
+
+
 	}
 
 	/**
@@ -50,9 +123,49 @@ public class CourseDBAccess {
 	 * @param teacherID
 	 * @return
 	 */
-	public boolean assignCourse(Course course, int teacherID) {
+	public boolean assignCourse(String courseName, String teacherName) {
 		// TODO implement here
-		return false;
+		Statement stmt = null;
+		String Query = "select CourseID from Courses where CourseName = \"" + courseName +"\"" ; 
+		try {
+			currentCon = ConnectionManager.getConnection();
+			stmt = currentCon.createStatement();
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int cID = rs.getInt("CourseID");
+			Query = "select TeacherID from Users join Teachers on Users.UserID = Teachers.UserID where Name = \"" + teacherName +"\"" ;
+			rs = stmt.executeQuery(Query);
+			rs.next();
+			int tID = rs.getInt("TeacherID");
+			Query = "insert into CoursesTeachers (CourseID, TeacherID) values (" + cID +", " + tID + ")";
+			stmt.executeUpdate(Query);
+			}
+
+		catch (Exception ex) {
+			System.out.println("AssignCourses failed: An Exception has occurred! " + ex);
+			return false;
+		}
+
+		// some exception handling
+		try {
+			if (rs != null) {
+				rs.close();
+				rs = null;
+			}
+			if (stmt != null) {
+				stmt.close();
+				stmt = null;
+			}
+			if (currentCon != null) {
+				currentCon.close();
+				currentCon = null;
+			}
+		} catch (Exception e) {
+
+		}
+
+
+		return true;
 	}
 
 	/**
@@ -79,9 +192,9 @@ public class CourseDBAccess {
 	/**
 	 * @return
 	 */
-	public Set<Course> selectCourses() {
+	public Course[] selectTCourses(int userID) {
 		// TODO implement here
-		return null;
+				return null;
 	}
 
 	/**
@@ -91,6 +204,7 @@ public class CourseDBAccess {
 	 */
 	public Set<Course> selectCourses(int studentID, int semesterNo) {
 		// TODO implement here
+		
 		return null;
 	}
 
@@ -98,12 +212,12 @@ public class CourseDBAccess {
 	 * @param studentID
 	 * @return
 	 */
-	public Course[] selectCourses(int studentID) {
+	public static Course[] selectCourses(int userID) {
 		Statement stmt = null;
-		String Query = "select * from Students join Semesters join SemestersCourses join Courses join Departments on "
-				+ "Students.StudentID = Semesters.StudentID && Semesters.SemesterID = SemestersCourses.SemesterID"
-				+ "&& SemestersCourses.CourseID = Courses.CourseID && Courses.DepartmentID = Departments.DepartmentID "
-				+ "where Students.StudentID = " + studentID;
+		String Query = "select * from Users join Students join Semesters join SemestersCourses join Courses "
+				+ "join Departments on Users.UserID = Students.UserID && Students.StudentID = Semesters.StudentID "
+				+ "&& Semesters.SemesterID = SemestersCourses.SemesterID && SemestersCourses.CourseID = Courses.CourseID"
+				+ " && Courses.DepartmentID = Departments.DepartmentID where Students.UserID = " + userID;
 		Course[] Courses = null;
 
 		try {
@@ -115,9 +229,9 @@ public class CourseDBAccess {
 			rs.beforeFirst();
 			int i = 0;
 			while (rs.next()) {
-				WorkYear[] grade = GradeDBAccess.getGrade(studentID, rs.getInt("Courses.CourseID"));
-				Teacher[] teachers = selectTeachers(rs.getInt("Courses.CourseID"));
-				Courses[i++] = new Course (rs.getString("CourseName"), rs.getString("Description"), rs.getInt("Hours"), rs.getString("DepartmentName"), grade, teachers);
+				WorkYear[] grade = GradeDBAccess.getGrade(rs.getInt("StudentID"), rs.getInt("CourseID"));
+				Teacher[] teachers = selectTeachers(rs.getInt("CourseID"));
+				Courses[i++] = new Course (i, rs.getString("CourseName"), rs.getString("Description"), rs.getInt("Hours"), rs.getString("DepartmentName"), grade, teachers);
 			}
 		}
 
@@ -147,7 +261,7 @@ public class CourseDBAccess {
 
 	}
 	
-	public Teacher[] selectTeachers(int courseID) {
+	public static Teacher[] selectTeachers(int courseID) {
 		Statement stmt = null;
 		ResultSet r = null;
 		String Query = "select * from CoursesTeachers join Teachers Join Users "

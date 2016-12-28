@@ -16,12 +16,13 @@ public class Offer {
     /**
      * 
      */
+    public String offerName;
     public String description;
 
     /**
      * 
      */
-    public string department;
+    public String department;
 
     /**
      * 

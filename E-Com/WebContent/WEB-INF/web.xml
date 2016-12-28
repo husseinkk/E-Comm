@@ -11,35 +11,75 @@
     <welcome-file>Sign_in.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>SignInServlet</servlet-name>
-  	<servlet-class>Controller.Sign_InServlet</servlet-class>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class>Controller.Sign_InServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>SignInServlet</servlet-name>
-  <url-pattern>/SignInServlet</url-pattern>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern>/SignInServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>addUserServlet</servlet-name>
-  	<servlet-class>Controller.addUserServlet</servlet-class>
+    <servlet-name>addUserServlet</servlet-name>
+    <servlet-class>Controller.addUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>addUserServlet</servlet-name>
-  <url-pattern>/addUserServlet</url-pattern>
+    <servlet-name>addUserServlet</servlet-name>
+    <url-pattern>/addUserServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>removeUserServlet</servlet-name>
-  	<servlet-class>Controller.removeUserServlet</servlet-class>
+    <servlet-name>removeUserServlet</servlet-name>
+    <servlet-class>Controller.removeUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>removeUserServlet</servlet-name>
-  <url-pattern>/removeUserServlet</url-pattern>
+    <servlet-name>removeUserServlet</servlet-name>
+    <url-pattern>/removeUserServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>SignOutServlet</servlet-name>
-  	<servlet-class>Controller.Sign_outServlet</servlet-class>
+    <servlet-name>editUserServlet</servlet-name>
+    <servlet-class>Controller.editUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>SignOutServlet</servlet-name>
-  <url-pattern>/SignOutServlet</url-pattern>
+    <servlet-name>editUserServlet</servlet-name>
+    <url-pattern>/editUserServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>addCourseServlet</servlet-name>
+    <servlet-class>Controller.addCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addCourseServlet</servlet-name>
+    <url-pattern>/addCourseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>deleteCourseServlet</servlet-name>
+      <servlet-class>Controller.deleteCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>deleteCourseServlet</servlet-name>
+      <url-pattern>/deleteCourseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+      <servlet-name>assignCourseServlet</servlet-name>
+      <servlet-class>Controller.assignCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>assignCourseServlet</servlet-name>
+      <url-pattern>/assignCourseServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SignOutServlet</servlet-name>
+    <servlet-class>Controller.Sign_outServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignOutServlet</servlet-name>
+    <url-pattern>/SignOutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>addOfferServlet</servlet-name>
+    <servlet-class>Controller.addOfferServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>addOfferServlet</servlet-name>
+    <url-pattern>/addOfferServlet</url-pattern>
   </servlet-mapping>
 </web-app>

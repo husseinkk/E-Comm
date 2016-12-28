@@ -70,7 +70,7 @@ public class UserManagement {
 	public boolean editUser(User user) {
 		// TODO implement here
 		UserDBAccess u = new UserDBAccess();
-		if (u.checkUser(user)) {
+		if (u.isUser(user)) {
 			u.editUser(user);
 			return true;
 		} else
